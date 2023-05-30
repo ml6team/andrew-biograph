@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>load_msi module &mdash; Drug Repurposing 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Drug Repurposing
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">load_msi module</a><ul>
+<li><a class="reference internal" href="#classes">Classes</a></li>
+<li><a class="reference internal" href="#load_msi.MSI"><code class="docutils literal notranslate"><span class="pre">MSI</span></code></a><ul>
+<li><a class="reference internal" href="#load_msi.MSI.name"><code class="docutils literal notranslate"><span class="pre">MSI.name</span></code></a></li>
+<li><a class="reference internal" href="#load_msi.MSI.mappings"><code class="docutils literal notranslate"><span class="pre">MSI.mappings</span></code></a></li>
+<li><a class="reference internal" href="#load_msi.MSI.get_mapping"><code class="docutils literal notranslate"><span class="pre">MSI.get_mapping()</span></code></a></li>
+<li><a class="reference internal" href="#load_msi.MSI.get_name_mapping"><code class="docutils literal notranslate"><span class="pre">MSI.get_name_mapping()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#load_msi.create_msi"><code class="docutils literal notranslate"><span class="pre">create_msi()</span></code></a></li>
+<li><a class="reference internal" href="#load_msi.generate_edge_index"><code class="docutils literal notranslate"><span class="pre">generate_edge_index()</span></code></a></li>
+<li><a class="reference internal" href="#load_msi.generate_mappings"><code class="docutils literal notranslate"><span class="pre">generate_mappings()</span></code></a></li>
+<li><a class="reference internal" href="#load_msi.generate_name_mappings"><code class="docutils literal notranslate"><span class="pre">generate_name_mappings()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Drug Repurposing</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">load_msi module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/load_msi.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-load_msi">
+<span id="load-msi-module"></span><h1>load_msi module<a class="headerlink" href="#module-load_msi" title="Permalink to this heading"></a></h1>
+<p>Loads the multiscale interactome data into a msi object.</p>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading"></a></h2>
+<p>MSI:</p>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="load_msi.MSI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">load_msi.</span></span><span class="sig-name descname"><span class="pre">MSI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#load_msi.MSI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The multiscale interactome.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="load_msi.MSI.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#load_msi.MSI.name" title="Permalink to this definition"></a></dt>
+<dd><p>The name identifier of the specific msi object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="load_msi.MSI.mappings">
+<span class="sig-name descname"><span class="pre">mappings</span></span><a class="headerlink" href="#load_msi.MSI.mappings" title="Permalink to this definition"></a></dt>
+<dd><p>Dictionary of dictionaries containing mappings between node ids, names, and gids</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load_msi.MSI.get_mapping">
+<span class="sig-name descname"><span class="pre">get_mapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mapping_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#load_msi.MSI.get_mapping" title="Permalink to this definition"></a></dt>
+<dd><p>Maps unique entites in a dataframe id column to unique graph ids (gids).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mapping_name</strong> (<em>str</em>) – Name of dictionary which can be accessed as key in mappings attribute</p></li>
+<li><p><strong>dataset</strong> (<em>str</em>) – Path to the tsv file to load into dataframe.</p></li>
+<li><p><strong>mapping</strong> (<em>dict</em>) – Dictionary (can be empty) to load key-value pairs into</p></li>
+<li><p><strong>id_col</strong> (<em>str</em>) – The column name in the dataset containing ids</p></li>
+<li><p><strong>offset</strong> (<em>int</em>) – The starting gid to assign as value when mapping ids to gids.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>offset</strong> – The maximum gid in msi.mappings</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="load_msi.MSI.get_name_mapping">
+<span class="sig-name descname"><span class="pre">get_name_mapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mapping_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val_col</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#load_msi.MSI.get_name_mapping" title="Permalink to this definition"></a></dt>
+<dd><p>Maps ids in</p>
+<blockquote>
+<div><blockquote>
+<div><p>df = pd.read_csv(dataset, sep=” “)
+mapping = pd.Series(df[val_col].values, index=df[key_col]).to_dict()
+if mapping_name in self.mappings.keys():</p>
+<blockquote>
+<div><p>self.mappings[mapping_name].update(mapping)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>else:</dt><dd><p>self.mappings[mapping_name] = mapping</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>def load_graph(self, features, edge_index, num_nodes):</dt><dd><p>self.data = Data(x=features, edge_index=edge_index, num_nodes=num_nodes)
+self.data.validate(raise_on_error=True)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p># Get the edge indices.
+def get_edges(dataset, src_mapping, src_col, dest_mapping, dest_col):</p>
+<blockquote>
+<div><p>df = pd.read_csv(dataset, sep=”     “)
+src_nodes = [src_mapping[src_id] for src_id in df[src_col]]
+dest_nodes = [dest_mapping[dest_id] for dest_id in df[dest_col]]
+edge_index = torch.tensor([src_nodes, dest_nodes])
+return edge_index</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="load_msi.create_msi">
+<span class="sig-prename descclassname"><span class="pre">load_msi.</span></span><span class="sig-name descname"><span class="pre">create_msi</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#load_msi.create_msi" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="load_msi.generate_edge_index">
+<span class="sig-prename descclassname"><span class="pre">load_msi.</span></span><span class="sig-name descname"><span class="pre">generate_edge_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#load_msi.generate_edge_index" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="load_msi.generate_mappings">
+<span class="sig-prename descclassname"><span class="pre">load_msi.</span></span><span class="sig-name descname"><span class="pre">generate_mappings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#load_msi.generate_mappings" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="load_msi.generate_name_mappings">
+<span class="sig-prename descclassname"><span class="pre">load_msi.</span></span><span class="sig-name descname"><span class="pre">generate_name_mappings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#load_msi.generate_name_mappings" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Andrew Foster.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
