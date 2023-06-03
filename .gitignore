@@ -6,3 +6,9 @@
 
 # Large MSI data files
 multiscale_interactome
+
+# Pycaches
+*__pycache__*
+
+# Checkpoints
+*.ipynb_checkpoints*
