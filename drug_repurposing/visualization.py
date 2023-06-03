@@ -1,6 +1,9 @@
 import networkx as nx
 from pyvis import network as net
 from torch_geometric.utils import to_networkx, degree
+from sklearn.manifold import TSNE
+from sklearn.decomposition import PCA
+import plotly.express as px
 
 def generate_nx_graph(data):
     # Create a directed graph from the data object, then convert it to undirected.
@@ -68,3 +71,61 @@ def generate_pyvis_graph(G):
     pyvis_graph.from_nx(G)
     return pyvis_graph
 
+
+
+def visualize_tsne_embeddings(model, data, title, perplexity=30.0,
+                              labeled=False, labels=[]):
+    """Visualizes node embeddings in 2D space with t-SNE.
+    
+    Parameters
+    ----------
+    model : trained or untrained model
+        A trained or untrained model.
+    data : Data object
+        A data object
+    title : str
+        Title of the plot
+    perplexity : float
+        t-SNE hyperparameter for perplexity
+        """
+    model.eval()
+    x = data.x
+    z = model.encode(x, data.edge_index)
+    ax1, ax2 = zip(*TSNE(n_components=2, learning_rate='auto', perplexity=perplexity,
+                       init='random').fit_transform(z.detach().cpu().numpy()))
+
+    fig = px.scatter(x=ax1, y=ax2, color=['r']*17660 + ['g']*1661 + ['b']*840 + ['p']*9798,
+                   title=title)
+
+    if labeled:
+        for i in labels:
+            fig.add_annotation(x=ax1[i], y=ax2[i],
+                         text=str(i), showarrow=False)
+    fig.show()
+    
+    
+
+def visualize_pca_embeddings(model, data, title, labeled=False, labels=[]):
+    """Visualizes node embeddings in 2D space with PCA (components=2).
+    
+    Parameters
+    ----------
+    model : trained or untrained model.
+    data : Data object
+        A data object.
+    title : str
+        Title of the plot.
+        """
+    
+    model.eval()
+    x = data.x
+    z = model.encode(x, data.edge_index)
+    pca = PCA(n_components=2)
+    components = pca.fit_transform(z.detach().cpu().numpy())
+    fig = px.scatter(components, x=0, y=1, color=['r']*17660 + ['g']*1661 + ['b']*840 + ['p']*9798,
+                   title=title)
+    if labeled:
+        for i in labels:
+            fig.add_annotation(x=components[:,0][i], y=components[:,1][i],
+                         text=str(i), showarrow=False)
+    fig.show()
