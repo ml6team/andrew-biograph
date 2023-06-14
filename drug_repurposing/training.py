@@ -1,9 +1,12 @@
 import numpy as np
+import torch
 from sklearn.metrics import roc_auc_score
 import torch_geometric.transforms as T
 from torch_geometric.loader import LinkNeighborLoader
 import torch.nn.functional as F
 import tqdm
+
+
 
 def split_data(
         data, val_size, test_size, supervision_ratio,
@@ -21,6 +24,77 @@ def split_data(
     train_data, val_data, test_data = transform(data)
     
     return train_data, val_data, test_data
+
+
+
+
+
+def stratified_split(dataset, train_size, val_size, test_size):
+    torch.manual_seed(42)
+    dataset = dataset.shuffle()
+    pos_ind = []
+    neg_ind = []
+
+    # Get the indices of the positive  and negative instances.
+    for i, mol in enumerate(dataset):
+        if mol.y == 1:
+            pos_ind.append(i)
+        else:
+            neg_ind.append(i)
+            
+    # Obtain the maximum indices for each of the datasets.
+    train_pos_obs = int(train_size * len(pos_ind))
+    train_neg_obs = int(train_size * len(neg_ind))
+    val_pos_obs = int(val_size * len(pos_ind))
+    val_neg_obs = int(val_size * len(neg_ind))
+    test_pos_obs = int(test_size * len(pos_ind))
+    test_neg_obs = int(test_size * len(neg_ind))
+    
+    # Get the positive and negative indices for each of the dataset splits.
+    train_ind = pos_ind[0 : train_pos_obs] + neg_ind[0 : train_neg_obs]
+    val_ind = pos_ind[train_pos_obs : train_pos_obs + val_pos_obs] + (
+            neg_ind[train_neg_obs : train_neg_obs + val_neg_obs])
+    
+    
+    test_ind = pos_ind[train_pos_obs + val_pos_obs : ] + (
+            neg_ind[train_neg_obs + val_neg_obs : ])
+    
+    
+    # Divide the total dataset into train, test, and validation splits.
+    train_data = dataset[train_ind]
+    val_data = dataset[val_ind]
+    test_data = dataset[test_ind]
+    
+    return train_data, val_data, test_data
+
+
+
+
+
+def sample_data(dataset, ratio=0.5, method="down"):
+
+    # Get the indices of the positive  and negative instances.
+    pos_ind = []
+    neg_ind = []
+    for i, mol in enumerate(dataset):
+        if mol.y == 1:
+            pos_ind.append(i)
+        else:
+            neg_ind.append(i)
+    
+    if method == "down":
+        sampled_neg_ind = list(np.random.choice(neg_ind, int(len(pos_ind) / ratio), replace=False))
+        ind = pos_ind + sampled_neg_ind
+    
+    sampled_data = dataset[ind]
+    
+    return sampled_data
+
+
+
+
+
+
 
 
 def create_minibatches(
@@ -46,6 +120,7 @@ def create_minibatches(
         shuffle=True)
     
     return train_loader
+
 
 
 
@@ -80,22 +155,6 @@ def train_model(model, src_node_type, dest_node_type, edge_types,
             loss.backward()
             optimizer.step()
             
-            # Get validation metrics.
-            #model.eval()
-            #val_edge_label_index = val_batch[edge_types].edge_label_index
-            #val_edge_feat_src = z_src[val_edge_label_index[0]]
-            #val_edge_feat_dest = z_dest[val_edge_label_index[1]]
-            #val_edge_preds = (val_edge_feat_src * val_edge_feat_dest).sum(dim=-1)
-            #val_ground_truth = val_batch[edge_types].edge_label
-            
-            #print(val_ground_truth)
-            #raise
-            
-            #val_loss = F.binary_cross_entropy_with_logits(val_edge_preds, val_ground_truth)
-            #val_auc = get_auc(val_ground_truth, val_edge_preds)
-            
-            
-            
             # Add the loss / auc for this batch to the total loss / auc for the epoch.
             total_loss += float(loss) * edge_preds.numel()
             total_auc += float(auc) * edge_preds.numel()
@@ -107,6 +166,7 @@ def train_model(model, src_node_type, dest_node_type, edge_types,
         
         model.eval()
         z = model(val_data.x_dict, val_data.edge_index_dict)
+    
             
         # Retrieve embeddings for the nodes in the specific edge type.
         z_src = z[src_node_type]
@@ -124,6 +184,74 @@ def train_model(model, src_node_type, dest_node_type, edge_types,
         print(f" Loss     : {total_loss / total_examples:<10.4f} |     AUC:     {total_auc / total_examples:>10.4f}")
         print(f" Val_Loss : {val_loss:<10.4f} |     Val_AUC: {val_auc:>10.4f}")
 
+
+        
+
+
+    
+    
+    
+
+def train_graph_classifier(model, ohe, loader, criterion, optimizer, train=True):
+    
+    # Set the model mode.
+    if train:
+        model.train()
+    else:
+        model.eval()
+    
+    # Initialize metrics to 0. 
+    total_loss = total_examples = total_correct = total_auc = 0
+    
+    # Iterate in batches over the data.
+    for data in loader: 
+        optimizer.zero_grad() 
+        data.x = data.x.to(torch.float32)
+        out = model(data.x, data.edge_index, data.batch)
+        labels = torch.tensor(ohe.transform(data.y).toarray())
+        loss = criterion(out, labels)  
+        
+        if train:
+            loss.backward()
+            optimizer.step()
+        
+        pred_class = out.argmax(dim=1)
+        correct = (pred_class == data.y.squeeze()).sum()
+        auc = get_auc(labels, out)
+        total_loss += float(loss) * len(data)
+        if auc != "NA":
+            total_auc += float(auc) * len(data)
+        
+        total_correct += correct
+        total_examples += len(data)
+    
+    
+    epoch_loss = total_loss / total_examples
+    epoch_acc = total_correct / total_examples
+    epoch_auc = total_auc / total_examples
+    
+        
+    return epoch_loss, epoch_acc, epoch_auc
+
+
+
+def get_predictions(model, loader):
+    model.eval()
+    total_correct = total_examples = total_auc = 0
+    correct = 0
+    for data in loader:  # Iterate in batches over the training/test dataset.
+        data.x = data.x.to(torch.float32)
+        out = model(data.x, data.edge_index, data.batch)
+        pred = out.argmax(dim=1) # Use the class with highest probability.
+        print(pred)
+        raise
+        
+        
+
+    
+        
+        
+        
         
 def get_auc(y, pred_y):
     """Calculate auc.
@@ -131,7 +259,10 @@ def get_auc(y, pred_y):
     
     y = y.detach().numpy()
     pred_y = pred_y.detach().numpy()
-    auc = roc_auc_score(y, pred_y)
+    try:
+        auc = roc_auc_score(y, pred_y)
+    except ValueError:
+        auc = "NA"
     
     return auc
     

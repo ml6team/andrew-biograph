@@ -1,0 +1,27 @@
+name	brand name	cid	smiles	type
+abacavir	Ziagen	441300	C1CC1NC2=C3C(=NC(=N2)N)N(C=N3)[C@@H]4C[C@@H](C=C4)CO	Nucleoside Reverse Transcriptase Inhibitors (NRTIs)
+emtricitabine	Emtriva	60877	C1[C@H](O[C@H](S1)CO)N2C=C(C(=NC2=O)N)F	Nucleoside Reverse Transcriptase Inhibitors (NRTIs)
+lamivudine	Epivir	60825	C1[C@H](O[C@H](S1)CO)N2C=CC(=NC2=O)N	Nucleoside Reverse Transcriptase Inhibitors (NRTIs)
+tenofovir disoproxil fumarate	Viread	6398764	C[C@H](CN1C=NC2=C(N=CN=C21)N)OCP(=O)(OCOC(=O)OC(C)C)OCOC(=O)OC(C)C.C(=C/C(=O)O)\C(=O)O	Nucleoside Reverse Transcriptase Inhibitors (NRTIs)
+zidovudine	Retrovir	35370	CC1=CN(C(=O)NC1=O)[C@H]2C[C@@H]([C@H](O2)CO)N=[N+]=[N-] 	Nucleoside Reverse Transcriptase Inhibitors (NRTIs)
+doravirine	Pifeltro	58460047	CN1C(=NNC1=O)CN2C=CC(=C(C2=O)OC3=CC(=CC(=C3)C#N)Cl)C(F)(F)F	Non-Nucleoside Reverse Transcriptase Inhibitors (NNRTIs)
+efavirenz	Sustiva	64139	C1CC1C#C[C@]2(C3=C(C=CC(=C3)Cl)NC(=O)O2)C(F)(F)F	Non-Nucleoside Reverse Transcriptase Inhibitors (NNRTIs)
+etravirine	Intelence	193962	CC1=CC(=CC(=C1OC2=NC(=NC(=C2Br)N)NC3=CC=C(C=C3)C#N)C)C#N	Non-Nucleoside Reverse Transcriptase Inhibitors (NNRTIs)
+nevirapine	Viramune	4463	CC1=C2C(=NC=C1)N(C3=C(C=CC=N3)C(=O)N2)C4CC4	Non-Nucleoside Reverse Transcriptase Inhibitors (NNRTIs)
+rilpivirine	Edurant	6451164	CC1=CC(=CC(=C1NC2=NC(=NC=C2)NC3=CC=C(C=C3)C#N)C)/C=C/C#N	Non-Nucleoside Reverse Transcriptase Inhibitors (NNRTIs)
+atazanavir	Reyataz	148192	CC(C)(C)[C@@H](C(=O)N[C@@H](CC1=CC=CC=C1)[C@H](CN(CC2=CC=C(C=C2)C3=CC=CC=N3)NC(=O)[C@H](C(C)(C)C)NC(=O)OC)O)NC(=O)OC	Protease Inhibitors (PIs)
+darunavir	Prezista	213039	CC(C)CN(C[C@H]([C@H](CC1=CC=CC=C1)NC(=O)O[C@H]2CO[C@@H]3[C@H]2CCO3)O)S(=O)(=O)C4=CC=C(C=C4)N	Protease Inhibitors (PIs)
+fosamprenavir	Lexiva	131536	CC(C)CN(C[C@H]([C@H](CC1=CC=CC=C1)NC(=O)O[C@H]2CCOC2)OP(=O)(O)O)S(=O)(=O)C3=CC=C(C=C3)N	Protease Inhibitors (PIs)
+ritonavir	Norvir	392622	CC(C)C1=NC(=CS1)CN(C)C(=O)N[C@@H](C(C)C)C(=O)N[C@@H](CC2=CC=CC=C2)C[C@@H]([C@H](CC3=CC=CC=C3)NC(=O)OCC4=CN=CS4)O	Protease Inhibitors (PIs)
+tipranavir	Aptivus	54682461	CCC[C@]1(CC(=C(C(=O)O1)[C@H](CC)C2=CC(=CC=C2)NS(=O)(=O)C3=NC=C(C=C3)C(F)(F)F)O)CCC4=CC=CC=C4	Protease Inhibitors (PIs)
+enfuvirtide	Fuzeon	16130199	CC[C@H](C)[C@@H](C(=O)N[C@@H](CCC(=O)O)C(=O)N[C@@H](CCC(=O)O)C(=O)N[C@@H](CO)C(=O)N[C@@H](CCC(=O)N)C(=O)N[C@@H](CC(=O)N)C(=O)N[C@@H](CCC(=O)N)C(=O)N[C@@H](CCC(=O)N)C(=O)N[C@@H](CCC(=O)O)C(=O)N[C@@H](CCCCN)C(=O)N[C@@H](CC(=O)N)C(=O)N[C@@H](CCC(=O)O)C(=O)N[C@@H](CCC(=O)N)C(=O)N[C@@H](CCC(=O)O)C(=O)N[C@@H](CC(C)C)C(=O)N[C@@H](CC(C)C)C(=O)N[C@@H](CCC(=O)O)C(=O)N[C@@H](CC(C)C)C(=O)N[C@@H](CC(=O)O)C(=O)N[C@@H](CCCCN)C(=O)N[C@@H](CC1=CNC2=CC=CC=C21)C(=O)N[C@@H](C)C(=O)N[C@@H](CO)C(=O)N[C@@H](CC(C)C)C(=O)N[C@@H](CC3=CNC4=CC=CC=C43)C(=O)N[C@@H](CC(=O)N)C(=O)N[C@@H](CC5=CNC6=CC=CC=C65)C(=O)N[C@@H](CC7=CC=CC=C7)C(=O)N)NC(=O)[C@H](CC(C)C)NC(=O)[C@H](CO)NC(=O)[C@H](CC8=CN=CN8)NC(=O)[C@H]([C@@H](C)CC)NC(=O)[C@H](CC(C)C)NC(=O)[C@H](CO)NC(=O)[C@H]([C@@H](C)O)NC(=O)[C@H](CC9=CC=C(C=C9)O)NC(=O)C	Fusion Inhibitors
+maraviroc	Selzentry	3002977	CC1=NN=C(N1C2C[C@H]3CC[C@@H](C2)N3CC[C@@H](C4=CC=CC=C4)NC(=O)C5CCC(CC5)(F)F)C(C)C	CCR5 Antagonists
+cabotegravir	Vocabria	54713659	C[C@H]1CO[C@H]2N1C(=O)C3=C(C(=O)C(=CN3C2)C(=O)NCC4=C(C=C(C=C4)F)F)O	Integrase Strand Transfer Inhibitor (INSTIs)
+dolutegravir	Tivicay Tivicay PD	54726191	C[C@@H]1CCO[C@@H]2N1C(=O)C3=C(C(=O)C(=CN3C2)C(=O)NCC4=C(C=C(C=C4)F)F)O	Integrase Strand Transfer Inhibitor (INSTIs)
+raltegravir	Isentress	54671008	CC1=NN=C(O1)C(=O)NC(C)(C)C2=NC(=C(C(=O)N2C)O)C(=O)NCC3=CC=C(C=C3)F	Integrase Strand Transfer Inhibitor (INSTIs)
+fostemsavir	Rukobia	11319217	CC1=NN(C=N1)C2=NC=C(C3=C2N(C=C3C(=O)C(=O)N4CCN(CC4)C(=O)C5=CC=CC=C5)COP(=O)(O)O)OC	Attachment Inhibitors
+ibalizumab-uiyk	Trogarzo	SID:124490315		Post-Attachment Inhibitors
+lenacapavir	Sunlenca	133082658	CC(C)(C#CC1=NC(=C(C=C1)C2=C3C(=C(C=C2)Cl)C(=NN3CC(F)(F)F)NS(=O)(=O)C)[C@H](CC4=CC(=CC(=C4)F)F)NC(=O)CN5C6=C([C@H]7C[C@H]7C6(F)F)C(=N5)C(F)(F)F)S(=O)(=O)C	Capsid Inhibitors
+cobicistat	Tybost	25151504	CC(C)C1=NC(=CS1)CN(C)C(=O)N[C@@H](CCN2CCOCC2)C(=O)N[C@H](CC[C@H](CC3=CC=CC=C3)NC(=O)OCC4=CN=CS4)CC5=CC=CC=C5	Pharmacokinetic Enhancers
+lopinavir and ritonavir	Kaletra	92727	CC1=C(C(=CC=C1)C)OCC(=O)N[C@@H](CC2=CC=CC=C2)[C@H](C[C@H](CC3=CC=CC=C3)NC(=O)[C@H](C(C)C)N4CCCNC4=O)O 	Combination HIV Medicines
+lamivudine and zidovudine	Combivir	72187	CC1=CN(C(=O)NC1=O)[C@H]2C[C@@H]([C@H](O2)COP(=O)(O)OP(=O)(O)OP(=O)(O)O)N=[N+]=[N-]	Combination HIV Medicines

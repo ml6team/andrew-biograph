@@ -27,7 +27,7 @@ class MSI():
     """
 
     
-    def __init__(self, name):
+    def __init__(self, name, num_features, data_dir, **kwargs):
         """Initialize the msi.
         
         Parameters
@@ -35,10 +35,20 @@ class MSI():
         name : str
             The name identifier of the specific msi object
         """
-        
+    
         self.name = name
+        self.num_features = num_features
+        self.data_dir = data_dir
         self.mappings = dict()
-
+        
+        # Iterate over any provided keyword arguments. 
+        self.extra_dz_data = None
+        self.exclude_drug_dz_links = False
+        for key, val in kwargs.items():
+            if key == "extra_dz_data":
+                self.extra_dz_data = val
+            if key == "exclude_drug_dz_links":
+                self.exclude_drug_dz_links = val
         
     def get_mapping(self, mapping_name, dataset, mapping, id_col, offset):
         """ Maps unique entites in a dataframe id column to unique graph ids (gids).
@@ -111,6 +121,8 @@ class MSI():
             The number of nodes present in the entire graph. 
         """
         self.data = Data(x=features, edge_index=edge_index, num_nodes=num_nodes)
+        
+        # Validate that the graph has proper format and has been loaded successfully.
         self.data.validate(raise_on_error=True)
     
     
@@ -119,28 +131,27 @@ class MSI():
                           drug_prot_edges, dz_prot_edges, prot_prot_edges, prot_func_edges, func_func_edges,
                           drug_dz_edges):
         
+        # Load nodes with their corresponding types.
         self.hetero_data = HeteroData()
-        self.hetero_data["prot"].node_id = torch.tensor(list(self.mappings["prot_id_gid_map"].values()),
-                                                        dtype=torch.int32)
-        #self.hetero_data["protein"].num_nodes = len(self.mappings["prot_id_gid_map"].values())
+        self.hetero_data["prot"].node_id = torch.tensor(
+                list(self.mappings["prot_id_gid_map"].values()), dtype=torch.int32)
         
-        self.hetero_data["drug"].node_id = torch.tensor(list(self.mappings["drug_id_gid_map"].values()),
-                                                        dtype=torch.int32)
-        #self.hetero_data["drug"].num_nodes = len(self.mappings["drug_id_gid_map"].values())
+        self.hetero_data["drug"].node_id = torch.tensor(
+                list(self.mappings["drug_id_gid_map"].values()), dtype=torch.int32)
         
-        self.hetero_data["dz"].node_id = torch.tensor(list(self.mappings["dz_id_gid_map"].values()),
-                                                      dtype=torch.int32)
-        #self.hetero_data["dz"].num_nodes = len(self.mappings["dz_id_gid_map"].values())
+        self.hetero_data["dz"].node_id = torch.tensor(
+                list(self.mappings["dz_id_gid_map"].values()), dtype=torch.int32)
         
-        self.hetero_data["func"].node_id = torch.tensor(list(self.mappings["func_id_gid_map"].values()),
-                                                        dtype=torch.int32)
-        #self.hetero_data["func"].num_nodes = len(self.mappings["func_id_gid_map"].values())
-        
+        self.hetero_data["func"].node_id = torch.tensor(
+                list(self.mappings["func_id_gid_map"].values()), dtype=torch.int32)
+    
+        # Load node features.
         self.hetero_data["prot"].x = prot_features
         self.hetero_data["drug"].x = drug_features
         self.hetero_data["dz"].x = dz_features
         self.hetero_data["func"].x = func_features
         
+        # Load edges with their corresponding types.
         self.hetero_data["drug", "binds", "prot"].edge_index = drug_prot_edges
         self.hetero_data["dz", "implicates", "prot"].edge_index = dz_prot_edges
         self.hetero_data["prot", "associates", "prot"].edge_index = prot_prot_edges
@@ -148,15 +159,16 @@ class MSI():
         self.hetero_data["func", "partOf", "func"].edge_index = func_func_edges
         self.hetero_data["drug", "treats", "dz"].edge_index = drug_dz_edges
         
+        # Make the graph undirected.
         self.hetero_data = T.ToUndirected()(self.hetero_data)
         
-        
+        # Validate that the graph has proper format and has been loaded successfully.
         self.hetero_data.validate(raise_on_error=True)
         
 
 
 
-def get_edges(dataset, src_mapping, src_col, dest_mapping, dest_col):
+def get_edges(dataset, src_mapping, src_col, dest_mapping, dest_col, debug=False):
     """ Get the edges between source and destination nodes in a dataset.
 
     Parameters
@@ -180,6 +192,7 @@ def get_edges(dataset, src_mapping, src_col, dest_mapping, dest_col):
 
     df = pd.read_csv(dataset, sep="\t")
     src_nodes = [src_mapping[src_id] for src_id in df[src_col]]
+    
     dest_nodes = [dest_mapping[dest_id] for dest_id in df[dest_col]]
     edge_index = torch.tensor([src_nodes, dest_nodes])
 
@@ -190,7 +203,7 @@ def get_edges(dataset, src_mapping, src_col, dest_mapping, dest_col):
 
 
 
-def generate_mappings(msi, inlcude_drug_dz_links=True):
+def generate_mappings(msi):
     """ Maps ids in the msi datasets to unique graph ids (gids).
 
     Parameters
@@ -201,81 +214,98 @@ def generate_mappings(msi, inlcude_drug_dz_links=True):
     
     # Get protein id to gid mappings.
     offset = msi.get_mapping(
-            "prot_id_gid_map", "../multiscale_interactome/data/3_protein_to_protein.tsv", 
+            "prot_id_gid_map", f"{msi.data_dir}/3_protein_to_protein.tsv", 
             {}, "node_1", 0)
     offset = msi.get_mapping(
-            "prot_id_gid_map", "../multiscale_interactome/data/3_protein_to_protein.tsv", 
+            "prot_id_gid_map", f"{msi.data_dir}/3_protein_to_protein.tsv", 
             msi.mappings["prot_id_gid_map"], "node_2", 0)
     offset = msi.get_mapping(
-            "prot_id_gid_map", "../multiscale_interactome/data/1_drug_to_protein.tsv", 
+            "prot_id_gid_map", f"{msi.data_dir}/1_drug_to_protein.tsv", 
             msi.mappings["prot_id_gid_map"], "node_2", offset)
     offset = msi.get_mapping(
-            "prot_id_gid_map", "../multiscale_interactome/data/2_indication_to_protein.tsv", 
+            "prot_id_gid_map", f"{msi.data_dir}/2_indication_to_protein.tsv", 
             msi.mappings["prot_id_gid_map"], "node_2", offset)
     offset = msi.get_mapping(
-            "prot_id_gid_map", "../multiscale_interactome/data/4_protein_to_biological_function.tsv", 
+            "prot_id_gid_map", f"{msi.data_dir}/4_protein_to_biological_function.tsv", 
             msi.mappings["prot_id_gid_map"], "node_1", offset)
 
     # Generate drug mapping.
     offset = msi.get_mapping(
-            "drug_id_gid_map", "../multiscale_interactome/data/1_drug_to_protein.tsv", 
+            "drug_id_gid_map", f"{msi.data_dir}/1_drug_to_protein.tsv", 
             {}, "node_1", 0)
-    if inlcude_drug_dz_links:
+    
+    if not msi.exclude_drug_dz_links:
         offset = msi.get_mapping(
-            "drug_id_gid_map", "../multiscale_interactome/data/6_drug_indication_df.tsv", 
+            "drug_id_gid_map", f"{msi.data_dir}/6_drug_indication_df.tsv", 
             msi.mappings["drug_id_gid_map"], "drug", offset)
 
 
     # Generate disease mapping.
     offset = msi.get_mapping(
-            "dz_id_gid_map", "../multiscale_interactome/data/2_indication_to_protein.tsv", 
+            "dz_id_gid_map", f"{msi.data_dir}/2_indication_to_protein.tsv", 
             {}, "node_1", 0)
-    if inlcude_drug_dz_links:
+    if not msi.exclude_drug_dz_links:
         offset = msi.get_mapping(
-            "dz_id_gid_map", "../multiscale_interactome/data/6_drug_indication_df.tsv", 
+            "dz_id_gid_map", f"{msi.data_dir}/6_drug_indication_df.tsv", 
             msi.mappings["dz_id_gid_map"], "indication", offset)
+    if msi.extra_dz_data is not None:
+        offset = msi.get_mapping(
+            "dz_id_gid_map", msi.extra_dz_data, 
+            msi.mappings["dz_id_gid_map"], "node_1", offset)
+        
         
 
     # Generate biological function mapping.
     offset = msi.get_mapping(
-            "func_id_gid_map", "../multiscale_interactome/data/4_protein_to_biological_function.tsv", 
+            "func_id_gid_map", f"{msi.data_dir}/4_protein_to_biological_function.tsv", 
             {}, "node_2", 0)
     offset = msi.get_mapping(
-            "func_id_gid_map", "../multiscale_interactome/data/5_biological_function_to_biological_function.tsv", 
+            "func_id_gid_map", f"{msi.data_dir}/5_biological_function_to_biological_function.tsv", 
             msi.mappings["func_id_gid_map"], "node_1", offset)
     offset = msi.get_mapping(
-            "func_id_gid_map", "../multiscale_interactome/data/5_biological_function_to_biological_function.tsv", 
+            "func_id_gid_map", f"{msi.data_dir}/5_biological_function_to_biological_function.tsv", 
             msi.mappings["func_id_gid_map"], "node_2", offset)
 
 
 
 
-def generate_edge_index(msi, inlcude_drug_dz_links=True):
+def generate_edge_index(msi):
     drug_prot_edges = get_edges(
-            "../multiscale_interactome/data/1_drug_to_protein.tsv",
+            f"{msi.data_dir}/1_drug_to_protein.tsv",
             msi.mappings["drug_id_gid_map"], "node_1",
             msi.mappings["prot_id_gid_map"], "node_2")
 
     dz_prot_edges = get_edges(
-            "../multiscale_interactome/data/2_indication_to_protein.tsv",
+            f"{msi.data_dir}/2_indication_to_protein.tsv",
             msi.mappings["dz_id_gid_map"], "node_1",
             msi.mappings["prot_id_gid_map"], "node_2")
 
     prot_prot_edges = get_edges(
-            "../multiscale_interactome/data/3_protein_to_protein.tsv",
+            f"{msi.data_dir}/3_protein_to_protein.tsv",
             msi.mappings["prot_id_gid_map"], "node_1",
             msi.mappings["prot_id_gid_map"], "node_2")
 
     prot_func_edges = get_edges(
-            "../multiscale_interactome/data/4_protein_to_biological_function.tsv",
+            f"{msi.data_dir}/4_protein_to_biological_function.tsv",
             msi.mappings["prot_id_gid_map"], "node_1",
             msi.mappings["func_id_gid_map"], "node_2")
 
     func_func_edges = get_edges(
-            "../multiscale_interactome/data/5_biological_function_to_biological_function.tsv",
+            f"{msi.data_dir}/5_biological_function_to_biological_function.tsv",
             msi.mappings["func_id_gid_map"], "node_1",
             msi.mappings["func_id_gid_map"], "node_2")
     
+    # Add in the extra edges from any additionally provided data.
+    if msi.extra_dz_data is not None:
+        temp = get_edges(
+                msi.extra_dz_data, 
+                msi.mappings["dz_id_gid_map"], "node_1",
+                msi.mappings["prot_id_gid_map"], "node_2",
+                debug=True)
+        dz_prot_edges = torch.cat((dz_prot_edges, temp), dim=1)
+                
+    
+    # Join all edges together.
     edge_index = torch.cat((
         drug_prot_edges, 
         dz_prot_edges, 
@@ -284,18 +314,21 @@ def generate_edge_index(msi, inlcude_drug_dz_links=True):
         func_func_edges), 
         dim=1)
     
-    if inlcude_drug_dz_links:
+    
+    if not msi.exclude_drug_dz_links:
         drug_dz_edges = get_edges(
             "../multiscale_interactome/data/6_drug_indication_df.tsv",
             msi.mappings["drug_id_gid_map"], "drug",
             msi.mappings["dz_id_gid_map"], "indication")
-        
-        edge_index = torch.cat((edge_index, drug_dz_edges), dim=1)
-        
+        edge_index = torch.cat((edge_index, drug_dz_edges), dim=1)   
     else:
         drug_dz_edges = None
-        
-    return edge_index, drug_prot_edges, dz_prot_edges, prot_prot_edges, prot_func_edges, func_func_edges, drug_dz_edges
+    
+    
+    
+    return (edge_index, drug_prot_edges, 
+            dz_prot_edges, prot_prot_edges, 
+            prot_func_edges, func_func_edges, drug_dz_edges)
 
 
 
@@ -310,21 +343,28 @@ def generate_name_mappings(msi):
     
     # Get id-name mappings for all node types in the msi.
     msi.get_name_mapping(
-            "prot_id_name_map", "../multiscale_interactome/data/3_protein_to_protein.tsv", "node_1", "node_1_name")
+            "prot_id_name_map", f"{msi.data_dir}/3_protein_to_protein.tsv", "node_1", "node_1_name")
     msi.get_name_mapping(
-            "prot_id_name_map", "../multiscale_interactome/data/3_protein_to_protein.tsv", "node_2", "node_2_name")
+            "prot_id_name_map", f"{msi.data_dir}/3_protein_to_protein.tsv", "node_2", "node_2_name")
     msi.get_name_mapping(
-            "drug_id_name_map", "../multiscale_interactome/data/1_drug_to_protein.tsv", "node_1", "node_1_name")
+            "drug_id_name_map", f"{msi.data_dir}/1_drug_to_protein.tsv", "node_1", "node_1_name")
     msi.get_name_mapping(
-            "dz_id_name_map", "../multiscale_interactome/data/2_indication_to_protein.tsv", "node_1", "node_1_name")
+            "dz_id_name_map", f"{msi.data_dir}/2_indication_to_protein.tsv", "node_1", "node_1_name")
     msi.get_name_mapping(
-            "func_id_name_map", "../multiscale_interactome/data/5_biological_function_to_biological_function.tsv", "node_1", "node_1_name")
+            "func_id_name_map", f"{msi.data_dir}/5_biological_function_to_biological_function.tsv", 
+            "node_1", "node_1_name")
     msi.get_name_mapping(
-            "func_id_name_map", "../multiscale_interactome/data/5_biological_function_to_biological_function.tsv", "node_2", "node_2_name")
+            "func_id_name_map", f"{msi.data_dir}/5_biological_function_to_biological_function.tsv", 
+            "node_2", "node_2_name")
+    
+    # Generate names for any extra data.
+    if msi.extra_dz_data:
+        msi.get_name_mapping("dz_id_name_map", msi.extra_dz_data, "node_1", "node_1_name")
+        
 
     
 
-def create_msi(name):
+def create_msi(name, **kwargs):
     """ Instantiate an msi object with name, mappings, and data attributes.
     
     Parameters
@@ -337,14 +377,13 @@ def create_msi(name):
     msi : MSI object
         MSI objecet contatining the multiscale interactome.
     """
-
-    msi = MSI(name)
+    
+    msi = MSI(name, **kwargs)
     generate_mappings(msi)
     generate_name_mappings(msi)
     edge_index, drug_prot_edges, dz_prot_edges, prot_prot_edges, prot_func_edges, func_func_edges, drug_dz_edges = (
             generate_edge_index(msi))
     
-    num_features = 20
     
     total_drug_nodes = len(msi.mappings["drug_id_gid_map"].values())
     total_dz_nodes = len(msi.mappings["dz_id_gid_map"].values())
@@ -354,12 +393,12 @@ def create_msi(name):
     
     num_nodes = (
             total_drug_nodes + total_dz_nodes + total_prot_nodes + total_func_nodes)
-    features = torch.ones((num_nodes, num_features))
+    features = torch.ones((num_nodes, msi.num_features))
     
-    drug_features = torch.ones((total_drug_nodes, num_features))
-    dz_features = torch.ones((total_dz_nodes, num_features))
-    prot_features = torch.ones((total_prot_nodes, num_features))
-    func_features = torch.ones((total_func_nodes, num_features))
+    drug_features = torch.ones((total_drug_nodes, msi.num_features))
+    dz_features = torch.ones((total_dz_nodes, msi.num_features))
+    prot_features = torch.ones((total_prot_nodes, msi.num_features))
+    func_features = torch.ones((total_func_nodes, msi.num_features))
   
     
     msi.load_graph(features, edge_index, num_nodes)

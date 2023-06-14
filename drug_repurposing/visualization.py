@@ -4,6 +4,8 @@ from torch_geometric.utils import to_networkx, degree
 from sklearn.manifold import TSNE
 from sklearn.decomposition import PCA
 import plotly.express as px
+from rdkit import Chem
+import py3Dmol
 
 def generate_nx_graph(data):
     # Create a directed graph from the data object, then convert it to undirected.
@@ -70,6 +72,27 @@ def generate_pyvis_graph(G):
     pyvis_graph = net.Network(notebook=True)
     pyvis_graph.from_nx(G)
     return pyvis_graph
+
+
+
+def draw_molecule(mol_smiles):
+    
+    mol = Chem.MolFromSmiles(mol_smiles)
+    mol = Chem.MolToMolBlock(mol, confId=-1)
+    view = py3Dmol.view(width=400,height=400)
+    view.removeAllModels()
+    
+    view.addModel(mol,'sdf')
+    view.setStyle({'stick':{}})
+    view.setBackgroundColor('0xeeeeee')
+    view.zoomTo()
+    
+    return view.show()
+
+
+
+
+
 
 
 

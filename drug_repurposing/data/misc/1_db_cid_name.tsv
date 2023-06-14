@@ -1,0 +1,1662 @@
+db	cid	name
+DB12010	11671467	fostamatinib
+DB01169	261004	Arsenic trioxide
+DB00459	5284513	acitretin
+DB06803	4477	Niclosamide
+DB09462	753	Glycerin
+DB01593	23994	zinc
+DB02709	445154	resveratrol
+DB06782	3080	dimercaprol
+DB00746	2973	deferoxamine-mesylate
+DB01094	72281	Hesperetin
+DB08827	9853053	lomitapide
+DB00619	5291	imatinib
+DB01268	5329102	sunitinib
+DB06589	10113978	pazopanib
+DB00397	10297	Phenylpropanolamine
+DB00368	439260	norepinephrine
+DB00960	4828	pindolol
+DB00598	3869	labetalol
+DB00852	7028	Pseudoephedrine
+DB00335	2249	atenolol-(+/-)
+DB08985	3306	etilefrine
+DB00187	59768	esmolol
+DB04855	208898	dronedarone
+DB01151	2995	desipramine
+DB00726	5584	trimipramine
+DB00489	5253	sotalol
+DB09068	9966051	vortioxetine
+DB01295	2372	bevantolol
+DB13345	107715	DIHYDROERGOCRISTINE
+DB00521	2583	carteolol
+DB00612	2405	bisoprolol
+DB01136	2585	carvedilol
+DB01214	31477	Metipranolol
+DB00221	3762	isoetharine
+DB00127	1103	Spermine
+DB11273	168871	DIHYDROERGOCORNINE
+DB00866	2119	alprenolol
+DB00571	4946	propranolol
+DB00871	5403	terbutaline
+DB08807	44112	bopindolol
+DB00334	135398745	olanzapine
+DB06262	92974	droxidopa
+DB01288	3343	
+DB01359	37464	penbutolol
+DB05039	6918554	indacaterol
+DB01182	4932	propafenone
+DB01193	1978	acebutolol
+DB00540	4543	nortriptyline
+DB01365	3677	mephentermine
+DB01291	4845	Pirbuterol
+DB09351	60657	levobetaxolol
+DB01118	2157	amiodarone
+DB00182	3007	Amphetamine
+DB00555	3878	lamotrigine
+DB00668	5816	epinephrine
+DB00408	3964	loxapine
+DB01064	3779	isoprenaline
+DB01407	2783	clenbuterol
+DB01001	2083	albuterol
+DB00264	4171	metoprolol
+DB00195	2369	betaxolol
+DB08808	2475	bupranolol
+DB00841	36811	dobutamine
+DB00938	5152	salmeterol
+DB08893	9865528	mirabegron
+DB00373	33624	timolol
+DB00321	2160	amitriptyline
+DB00248	54746	cabergoline
+DB01102	60789	Arbutamine
+DB06216	11954293	asenapine
+DB01297	4883	
+DB00983	3410	formoterol
+DB04861	71301	nebivolol
+DB04846	2663	celiprolol
+DB00370	4205	mirtazapine
+DB01049		Ergoloid mesylate
+DB01210	39468	levobunolol
+DB01580	4631	oxprenolol
+DB01203	39147	nadolol
+DB09301		CHONDROITIN SODIUM
+DB00661	2520	verapamil
+DB09229	2225	Aranidipine
+DB00653	24083	Magnesium Sulfate
+DB00825	16666	levomenthol
+DB13500	72093	otilonium
+DB00568	2761	cinnarizine
+DB08872	9883933	gabapentin-enacarbil
+DB09089	5573	trimebutine
+DB09230	65948	azelnidipine
+DB00230	5486971	pregabalin
+DB00270	3784	isradipine
+DB00622	4474	nicardipine
+DB01023	3333	felodipine
+DB12278	4942	propiverine
+DB00996	3446	gabapentin
+DB00308	60753	ibutilide
+DB00898	702	Ethanol
+DB00381	2162	amlodipine
+DB09090	40704	pinaverium
+DB00343	39186	diltiazem
+DB01115	4485	nifedipine
+DB00401	4499	nisoldipine
+DB00393	4497	nimodipine
+DB00421	5833	spironolactone
+DB04920	153994	cleviprex
+DB09235	119171	Efonidipine
+DB00201	2519	caffeine
+DB00909	5734	zonisamide
+DB03904	1176	urea
+DB00071		insulin, neutral
+DB00030		insulin human
+DB00129	6262	L-Ornithine
+DB06616	5328940	bosutinib
+DB04272	311	
+DB01277		Mecasermin
+DB00523	449171	Alitretinoin
+DB04866	456390	halofuginone
+DB00048		Collagenase clostridium histolyticum
+DB00091	5284373	cyclosporine
+DB01254	3062316	dasatinib
+DB00047		Insulin Glargine
+DB01307		Insulin Detemir
+DB09564		Insulin Degludec
+DB01309		Insulin Glulisine
+DB01306		insulin aspart, biphasic isophane [injection]
+DB00046		Insulin Lispro
+DB01179	10607	podophyllotoxin
+DB03754	6503	Tromethamine
+DB00002		Cetuximab
+DB00072		trastuzumab
+DB09559		Necitumumab
+DB00317	123631	gefitinib
+DB00281	3676	lidocaine
+DB00530	176870	erlotinib
+DB05294	3081361	vandetanib
+DB00279	5920	liothyronine
+DB00444	452548	teniposide
+DB00380	71384	dexrazoxane
+DB00970	457193	dactinomycin
+DB00773	36462	etoposide
+DB00694	30323	daunorubicin
+DB08875	25102847	cabozantinib
+DB05578		Ramucirumab
+DB00398	216239	sorafenib
+DB08901	24826799	ponatinib
+DB08896	11167602	regorafenib
+DB09079	135423438	nintedanib
+DB06626	6450551	axitinib
+DB09078	9823820	lenvatinib
+DB09371	6231	noretynodrel
+DB00977	5991	ethinyl-estradiol
+DB00655	5870	Estrone
+DB01708	5881	Dehydroepiandrosterone
+DB00947	104741	fulvestrant
+DB00882	2800	clomifene
+DB00648	4211	mitotane
+DB01196	259331	estramustine
+DB01357	6291	mestranol
+DB00396	5994	progesterone
+DB00783	5757	estradiol
+DB06202	216416	lasofoxifene
+DB00286		Conjugated Estrogens
+DB00823	9270	ethynodiol-diacetate
+DB06710	6010	Methyltestosterone
+DB01108	656583	trilostane
+DB00367	13109	levonorgestrel
+DB11619	27812	gestrinone
+DB01431	235905	allylestrenol
+DB00539	3005573	toremifene
+DB04575	9046	quinestrol
+DB01183	5284596	naloxone
+DB00675	2733526	tamoxifen
+DB00957	6540478	norgestimate
+DB04938	3036505	ospemifene
+estropipate		
+DB01406	28417	danazol
+DB00304	40973	desogestrel
+DB01185	6446	fluoxymesterone
+DB06401	154257	bazedoxifene
+DB13943	441404	testosterone cypionate
+DB09070	444008	tibolone
+DB01065	896	melatonin
+DB00481	5035	raloxifene
+DB00603	6279	medroxyprogesterone acetate
+DB00890	667476	dienestrol
+DB00624	6013	testosterone
+DB00255	448537	Diethylstilbestrol
+DB13954	9403	estradiol cypionate
+DB01109		Heparin
+DB00039		palifermin
+neridronic-acid		
+DB00884	5245	risedronate
+DB00630	2088	alendronate
+DB00282	4674	pamidronate
+minodronic-acid		
+DB00399	68740	zoledronic-acid
+DB00710	60852	ibandronate
+DB00070		hyaluronidase (ovine)
+DB01034	5282054	
+DB01083	3034010	orlistat
+DB00339	1046	pyrazinamide
+DB09517	76968835	sodium ferric gluconate complex
+DB00893		IRON DEXTRAN
+DB05099		Ancrod
+DB00015		Reteplase
+DB00031		Tenecteplase
+DB11571		
+DB11572		THROMBIN ALFA
+DB00364	121494085	sucralfate
+DB00029		Anistreplase
+DB00009		Alteplase
+DB00635	5865	prednisone
+DB01234	5743	dexamethasone
+DB00663	16490	flumethasone
+fludrocortisone-acetate		
+DB00741	5754	hydrocortisone
+DB01410	6918155	ciclesonide
+DB00596	5311167	halobetasol
+DB00620	31307	triamcinolone
+megestrol-acetate		
+DB00324	9878	fluorometholone
+DB00687	31378	Fludrocortisone
+DB00223	71415	DIFLORASONE
+dexamethasone-sodium-phosphate		
+DB00443	9782	betamethasone
+methylprednisolone-aceponate		
+cortisone		
+DB00860	5755	prednisolone
+prednisolone-acetate		
+fluocinolone-acetonide		
+DB00873	9865442	loteprednol
+DB00588	444036	fluticasone propionate
+hydrocortisone-butyrate		
+DB01260	5311066	desonide
+DB00896	5311412	rimexolone
+DB00547	5311067	desoximetasone
+DB01380	5745	cortisone-acetate
+DB00838	5311052	CLOCORTOLONE
+DB08867	13559281	ulipristal
+DB00288	443958	amcinonide
+DB08906	9854489	fluticasone furoate
+DB00351	11683	megestrol acetate
+DB00764	441335	mometasone
+DB01013	32798	clobetasol-propionate
+prednisolone-sodium-phosphate		
+DB00180	82153	flunisolide
+hydrocortisone-phosphate		
+clobetasone-butyrate		
+DB00591	6215	Fluocinolone Acetonide
+DB00240	5311000	ALCLOMETASONE
+DB00834	55245	mifepristone
+DB01047	9642	fluocinonide
+DB01222	5281004	budesonide
+DB06786	443943	halcinonide
+DB00959	6741	methylprednisolone
+DB01130	6714002	prednicarbate
+DB00253	247839	medrysone
+DB00394	21700	beclomethasone-dipropionate
+DB09091	162955	Tixocortol
+DB00846	15209	fludroxycortide
+DB11824	46908929	tofogliflozin
+DB00945	2244	aspirin
+DB13999		MOROCTOCOG ALFA
+DB00025		
+DB00428	29327	streptozotocin
+DB00241	2481	butalbital
+DB00849	8271	Methylphenobarbital
+DB01352	6464	APROBARBITAL
+DB00237	2479	butabarbital
+DB00306	8275	Talbutal
+DB01353	6473	Butethal
+DB00794	4909	primidone
+DB00599	3000715	thiopental
+DB01174	4763	Phenobarbital
+DB00418	5193	Secobarbital
+DB01351	2164	Amobarbital
+DB00312	4737	Pentobarbital
+DB00142	33032	L-Glutamic Acid
+DB00273	5284627	topiramate
+DB08912	44462760	dabrafenib
+DB00139	1110	Succinic acid
+DB08818	24759	
+hyaluronic-acid		
+DB00491	441314	miglitol
+DB00188	387447	bortezomib
+DB08889	11556711	carfilzomib
+DB06372		Rilonacept
+thiram		
+DB08895	9926791	tofacitinib
+DB11817	44205240	baricitinib
+DB08877	25126798	ruxolitinib
+DB06756	247	betaine
+DB01367	3052776	rasagiline
+DB11581	49846579	venetoclax
+DB01229	36314	paclitaxel
+DB09401	12597	isosorbide
+DB12243	4021	edaravone
+DB09213	39912	Dexibuprofen
+DB01248	148124	docetaxel
+DB01050	3672	ibuprofen
+DB08871	11354606	Eribulin
+DB08814	9458	triflusal
+DB01411	4887	pranlukast
+DB01041	5426	Thalidomide
+DB00244	4075	mesalazine
+tepoxalin		
+DB00586	3033	diclofenac
+DB00744	60490	zileuton
+DB11994	26248	diacerein
+DB01014	54585	balsalazide
+DB00233	4649	aminosalicylate
+DB00795	5339	sulfasalazine
+DB08955	68704	ibuproxam
+DB00179	71398	masoprocol
+DB01017	54675783	minocycline
+DB00939	4037	meclofenamic-acid
+DB00163	14985	Vitamin E
+DB00471	5281040	montelukast
+silibinin		
+DB00514	5360696	dextromethorphan
+DB00903	3278	etacrynic-acid
+DB08908	637568	dimethyl-fumarate
+DB06151	12035	acetylcysteine
+DB01592	23925	Iron
+arsenic-trioxide		
+DB09221	51051629	Polaprezinc
+DB09099	16129706	somatostatin
+DB00956	5284569	Hydrocodone
+DB01192	5284604	Oxymorphone
+DB00318	5284371	Codeine
+DB01081	13505	Diphenoxylate
+DB00327	5284570	Hydromorphone
+butorphanol-(+)-tartrate		
+DB00295	5288826	Morphine
+DB00193	33741	tramadol
+DB06204	9838022	tapentadol
+DB11130		Opium
+DB06230	5284594	nalmefene
+DB00844	5311304	nalbuphine
+DB00813	3345	Fentanyl
+DB00704	5360515	naltrexone
+DB09289	68870	tianeptine
+DB09272	11250029	eluxadoline
+DB01452	5462328	Heroin
+DB06800	16089915	methylnaltrexone
+DB00921	644073	Buprenorphine
+DB00647	10100	Dextropropoxyphene
+DB00497	5284603	Oxycodone
+DB00854	5359272	Levorphanol
+DB00836	3955	loperamide
+DB00611	6916249	Butorphanol
+DB00806	4740	pentoxifylline
+DB00975	3108	dipyridamole
+DB00083		
+DB00126	54670067	Vitamin C
+DB04519	379	octanoic acid
+DB00573	3342	fenoprofen
+DB01132	4829	pioglitazone
+DB01393	39042	bezafibrate
+DB01241	3463	gemfibrozil
+DB00132	5280934	
+DB01039	3339	fenofibrate
+DB00328	3715	indomethacin
+DB08983	65777	etofibrate
+DB00313	3121	Valproic Acid
+DB09064	2763	ciprofibrate
+DB03017	3893	
+DB00636	2796	clofibrate
+DB00412	77999	Rosiglitazone
+DB13873	64929	fenofibric-acid
+DB00159	446284	icosapent
+DB09006	2787	clinofibrate
+DB12483	135565596	copanlisib
+DB09054	11625818	idelalisib
+DB00851	135398738	dacarbazine
+DB00920	3827	ketotifen
+DB00594	16231	amiloride
+DB06637	1727	dalfampridine
+DB00482	2662	celecoxib
+DB00307	82146	bexarotene
+DB00755	444795	tretinoin
+DB00162	445354	retinol
+DB00210	60164	adapalene
+DB01436	5282181	alfacalcidol
+DB00749	3308	etodolac
+DB00864	445643	tacrolimus
+DB00877	5284616	sirolimus
+zotarolimus		
+DB00337	6509979	pimecrolimus
+DB04868	644241	nilotinib
+DB00922	3033825	levosimendan
+DB01244	2351	bepridil
+DB00831	5566	trifluoperazine
+DB00108		Natalizumab
+DB09033		vedolizumab
+DB00290	5360373	bleomycin
+DB01349	60919	Tasosartan
+DB00796	2540	candesartan-cilextil
+DB08822	135409642	Azilsartan medoxomil
+DB09121	6104	aurothioglucose
+DB09053	24821094	ibrutinib
+DB00798	3467	Gentamicins
+gentamycin		
+DB00013		Urokinase
+DB03793	243	Benzoic Acid
+DB05016	11219835	ataluren
+DB00055		
+DB13933		NONACOG BETA PEGOL
+DB13152		
+DB00100		Coagulation Factor IX
+L-Arginine		
+DB00125	6322	L-Arginine
+DB00155	9750	L-Citrulline
+DB00128	5960	L-Aspartic Acid
+L-Citrulline		
+DB08911	11707110	trametinib
+DB00242	20279	cladribine
+DB00987	6253	cytarabine
+DB01280	3011155	nelarabine
+DB01073	657237	fludarabine
+DB00631	119182	clofarabine
+fludarabine-phosphate		
+DB01238	60795	aripiprazole
+DB00472	3386	fluoxetine
+spiperone		
+DB00696	8223	ergotamine
+DB00850	4748	perphenazine
+DB00434	2913	cyproheptadine
+DB00589	28864	lisuride
+DB01267	115237	paliperidone
+DB00934	4011	maprotiline
+DB00268	5095	ropinirole
+DB06153	27400	pizotifen
+DB00935	4636	oxymetazoline
+DB00777	4940	propiomazine
+DB01149	4449	Nefazodone
+DB00458	3696	imipramine
+DB00734	5073	risperidone
+DB00476	60835	duloxetine
+DB00623	3372	fluphenazine
+DB00543	2170	amoxapine
+DB06148	4184	mianserin
+DB04871	11658860	lorcaserin
+DB00805	4199	minaprine
+DB00420	4926	promazine
+DB01239	667467	chlorprothixene
+DB09000	62865	cyamemazine
+DB00656	5533	trazodone
+DB06594	82148	agomelatine
+DB01392	8969	yohimbine
+DB00215	2771	citalopram
+DB01200	31101	bromocriptine
+DB01403	72287	levomepromazine
+DB01224	5002	quetiapine
+DB01142	667468	doxepin
+DB08839	5202	serotonin
+DB01186	47811	Pergolide
+DB09225	5736	zotepine
+DB00246	60854	ziprasidone
+DB01079	135409453	
+DB12163	5160	sarpogrelate
+DB00714	6005	Apomorphine
+DB01191	66265	Dexfenfluramine
+DB09304	5205	setiptiline
+DB00247	6540428	methysergide
+DB06144	60149	Sertindole
+DB01242	2801	clomipramine
+DB00574	3337	Fenfluramine
+DB09014	10240	Captodiame
+DB00413	119570	pramipexole
+DB00363	135398737	clozapine
+DB00477	2726	chlorpromazine
+DB06713	62930	norelgestromin
+DB00621	5878	oxandrolone
+DB01063	17676	acetophenazine
+DB01026	3823	ketoconazole
+DB01395	68873	drospirenone
+DB09123	68861	dienogest
+DB06718	25249	stanozolol
+DB08899	15951529	enzalutamide
+DB00984	229455	Nandrolone phenpropionate
+DB00499	3397	flutamide
+testosterone-enanthate		
+DB13169	9904	nandrolone
+DB09389	4542	norgestrel
+testosterone-undecanoate		
+DB00665	4493	nilutamide
+DB08804	9677	Nandrolone decanoate
+DB01128	2375	bicalutamide
+DB02901	10635	dihydrotestosterone
+DB01420	5995	Testosterone Propionate
+DB08604	5564	
+DB06412	5281034	oxymetholone
+DB00858	6011	Drostanolone
+DB01599	4912	probucol
+DB01016	3488	glyburide
+DB05266	3671	ibudilast
+DB05676	11561674	apremilast
+DB00651	3182	dyphylline
+DB00131	6083	Adenosine monophosphate
+DB09283	5531	trapidil
+DB01656	449193	roflumilast
+DB01025	2161	amlexanox
+DB09273	50942	doxofylline
+DB00277	2153	Theophylline
+DB01088	5311181	iloprost
+DB01003	2882	cromoglicic-acid
+DB09039	23652731	eliglustat
+DB00419	51634	miglustat
+DB01138	5342	sulfinpyrazone
+DB01097	3899	leflunomide
+DB06287	23724530	temsirolimus
+DB01590	6442177	everolimus
+DB09198	9826451	Lobeglitazone
+DB00731	5311309	nateglinide
+DB01067	3478	glipizide
+DB01252	121891	mitiglinide
+DB00966	65999	telmisartan
+DB00912	65981	repaglinide
+DB00717	6230	norethindrone
+DB05521	3010818	telaprevir
+chlormadinone-acetate		
+DB00378	9051	dydrogesterone
+DB00451	5819	levothyroxine
+DB00509	8730	Dextrothyroxine
+DB11324	2998	nonivamide
+DB09288	68865	propacetamol
+DB01744	159055	Camphor
+DB00316	1983	paracetamol
+DB06774	1548943	capsaicin
+DB11131		capsicum oleoresin
+DB04941		CROFELEMER
+DB09280	16678941	lumacaftor
+DB08820	16220172	ivacaftor
+DB00887	2471	bumetanide
+DB11712	46199646	tezacaftor
+sodium-salicylate		
+DB03619	222528	deoxycholic-acid
+DB05990	447715	obeticholic acid
+DB02659	221493	cholic-acid
+DB01586	31401	ursodiol
+DB06777	10133	chenodeoxycholic-acid
+DB00331	4091	metformin
+DB00928	9444	azacitidine
+DB01262	451668	decitabine
+DB06176	5352062	romidepsin
+DB05015	6918638	belinostat
+DB02546	5311	vorinostat
+DB06603	6918837	panobinostat
+DB04115	2353	
+DB00206	5770	reserpine
+DB00583	10917	levocarnitine
+DB11560	53465279	lesinurad
+DB01356	28486	Lithium
+DB00141	1738118	N-Acetyl-D-glucosamine
+DB01382	9565	Glycodiazine
+DB00222	3476	glimepiride
+DB00839	5503	tolazamide
+DB00414	1989	acetohexamide
+DB00350	4201	minoxidil
+DB01124	5505	tolbutamide
+DB01303	656652	
+DB01223	9433	Aminophylline
+DB00227	53232	lovastatin
+DB00608	2719	chloroquine
+DB01611	3652	Hydroxychloroquine
+DB00982	5282379	isotretinoin
+DB04942	108143	tamibarotene
+DB00799	5381	tazarotene
+DB00157	439153	NADH
+DB00727	4510	Nitroglycerin
+DB00325	11963622	Nitroprusside
+DB04899		Nesiritide
+DB00883	6883	isosorbide-dinitrate
+DB08883	9924495	perampanel
+DB00228	3226	Enflurane
+DB00606	2910	cyclothiazide
+DB00627	938	niacin
+DB01176	6726	cyclizine
+DB00133	5951	L-Serine
+DB00114	1051	Pyridoxal Phosphate
+DB00151	5862	L-Cysteine
+DB00118	34755	ademetionine
+DB00143	124886	Glutathione
+DB00720	25419	clodronic-acid
+DB00811	37542	ribavirin
+DB00173	190	Adenine
+DB00323	4659569	Tolcapone
+DB11632	135565903	OPICAPONE
+DB00494	5281081	entacapone
+DB00515	441203	cisplatin
+DB00768	5281071	olopatadine
+DB00145	750	Glycine
+DB00628	2809	Clorazepate
+DB00842	4616	oxazepam
+DB00801	31640	Halazepam
+DB00690	3393	Flurazepam
+DB00404	2118	Alprazolam
+DB00292	667484	etomidate
+DB09118	5311454	stiripentol
+DB01558	2441	Bromazepam
+DB01588	4890	Prazepam
+DB01107	4162	methyprylon
+DB00349	2789	clobazam
+DB00463	4099	metharbital
+DB00546	37632	Adinazolam
+DB00189	5281077	Ethchlorvynol
+DB00475	2712	Chlordiazepoxide
+DB01215	3261	Estazolam
+DB01956	1123	taurine
+DB01589	4999	quazepam
+DB00186	3958	lorazepam
+DB00371	4064	meprobamate
+DB00897	5556	Triazolam
+DB00683	4192	Midazolam
+DB00829	3016	diazepam
+DB01595	4506	Nitrazepam
+DB01437	3487	Glutethimide
+DB00659	71158	acamprosate
+DB00818	4943	propofol
+DB00402	969472	eszopiclone
+DB01068	2802	clonazepam
+DB11582	9915886	thiocolchicoside
+DB00231	5391	Temazepam
+DB01698	5280805	rutin
+DB00905	5311027	bimatoprost
+DB00770	5280723	alprostadil
+DB00819	1986	acetazolamide
+DB00130	5961	glutamine-(l)
+DB00148	586	
+DB00993	2265	azathioprine
+DB01033	667490	mercaptopurine
+DB00607	8982	Nafcillin
+DB01140	47965	cefadroxil
+DB01032	4911	probenecid
+DB01212	5479530	ceftriaxone
+DB01060	33613	amoxicillin
+DB00493	5742673	cefotaxime
+cyclosporin-a		
+DB09220	47528	nicorandil
+DB01110	4189	miconazole
+DB00102		Becaplermin
+DB00170	4055	menadione
+DB01394	2833	colchicine
+DB00361	5311497	vinorelbine
+DB04845	6445540	ixabepilone
+DB00063		eptifibatide
+DB00775	60947	tirofiban
+DB00054		Abciximab
+DB00448	3883	lansoprazole
+DB00637	2247	Astemizole
+DB00020		sargramostim
+bucladesine		
+DB02701	936	nicotinamide
+DB09074	23725625	olaparib
+DB00570	13342	vinblastine
+DB01029	3749	irbesartan
+DB08868	107970	fingolimod
+DB06819	4775	phenylbutyrate
+DB13165	9863672	ripasudil
+DB04865	285033	homoharringtonine
+DB08881	42611257	vemurafenib
+DB00642	135410875	pemetrexed
+DB00997	31703	doxorubicin
+epalrestat		
+DB00605	1548887	sulindac
+sodium-monofluorophosphate		
+DB00688	5281078	mycophenolate-mofetil
+DB01024	446541	mycophenolic-acid
+DB00352	2723601	thioguanine
+DB01104	68617	sertraline
+DB00445	41867	epirubicin
+ethanolamine-oleate		
+DB01197	44093	captopril
+DB04743	4495	nimesulide
+DB00174	6267	L-Asparagine
+DB02772	5988	SUCROSE
+DB08873	10324367	boceprevir
+DB00119	1060	Pyruvic acid
+DB00115	5311498	cyanocobalamin
+DB00200	70678542	Hydroxocobalamin
+DB00181	2284	baclofen
+DB00216	77993	eletriptan
+DB00669	5358	sumatriptan
+DB00998	77992	frovatriptan
+DB00315	60857	zolmitriptan
+DB00953	5078	rizatriptan
+DB09286	4830	pipamperone
+DB00952	4440	naratriptan
+DB00918	123606	almotriptan
+DB00904	4595	ondansetron
+fluphenazine-decanoate		
+DB00320	10531	dihydroergotamine
+DB04842	3396	fluspirilene
+DB01253	443884	ergonovine
+DB00784	4044	mefenamic-acid
+DB13167	30951	alclofenac
+DB01397	54684589	Magnesium salicylate
+DB00991	4614	oxaprozin
+DB09217	208910	firocoxib
+DB00154	5280581	gamma-Homolinolenic acid
+DB00461	4409	nabumetone
+DB08910	134780	pomalidomide
+DB13217	28871	fentiazac
+DB00814	54677470	meloxicam
+DB01628	123619	etoricoxib
+DB00936	338	Salicylic acid
+DB00500	5509	tolmetin
+DB00712	3394	flurbiprofen-(+/-)
+DB01009	3825	ketoprofen
+DB12233	124246	iguratimod
+DB00788	156391	naproxen
+DB06736	71771	aceclofenac
+flurbiprofen-(S)-(+)		
+DB06725	54690031	lornoxicam
+DB01401	54682045	Trisalicylate-choline
+DB01399	5161	sasapyrine
+DB00469	54677971	tenoxicam
+DB01283	151166	Lumiracoxib
+DB11071	8361	phenyl-salicylate
+deracoxib		
+DB00580	119607	
+bendazac		
+ufenamate		
+DB00963	60726	Bromfenac
+DB00821	2581	carprofen
+DB08984	35375	etofenamate
+DB09212	3965	loxoprofen
+DB00480	216326	lenalidomide
+DB01435	2206	phenazone
+DB01404		GINSENG
+DB00533	5090	
+amtolmetin-guacil		
+DB00554	54676228	piroxicam
+DB13783	1981	acemetacin
+DB04552	4488	niflumic-acid
+DB00812	4781	Phenylbutazone
+DB01600	5468	tiaprofenic-acid
+ibuprofen-lysine		
+DB00861	3059	diflunisal
+DB12545	107641	indobufen
+DB01078	28620	deslanoside
+DB01077	3305	etidronic-acid
+DB09131	24014	cupric chloride
+DB09568		Omega-3-carboxylic acids
+DB01296	439213	glucosamine
+DB06674		golimumab
+DB00065		Infliximab
+DB00005		Etanercept
+DB08904		Certolizumab pegol
+DB00051		Adalimumab
+DB04951	40632	pirfenidone
+DB01427	3698	amrinone
+DB00808	3702	indapamide
+DB04953	121892	retigabine
+DB00040		Glucagon recombinant
+DB00541	5388993	vincristine
+DB00925	4768	phenoxybenzamine
+DB04841	941361	flunarizine
+DB00527	3025	cinchocaine
+DB01100	16362	pimozide
+DB01429	2218	aprindine
+DB01069	4927	promethazine
+DB04216	5280343	quercetin
+DB00752	5530	tranylcypromine
+DB01015	5329	sulfamethoxazole
+DB00615	135398743	Rifabutin
+DB00716	50294	nedocromil
+DB00121	171548	Biotin
+DB00503	392622	Ritonavir
+DB00951	3767	Isoniazid
+DB00374	6918140	Treprostinil
+DB00356	2733	chlorzoxazone
+DB00740	5070	riluzole
+DB00158	135398658	folic-acid
+DB00641	54454	simvastatin
+DB05239	16222096	cobimetinib
+DB00677	5936	isoflurophate
+DB00988	681	dopamine
+DB00780	3675	phenelzine
+DB09241	6099	Methylene Blue
+DB08907	24812758	canagliflozin
+DB09038	11949646	empagliflozin
+DB06292	9887712	dapagliflozin
+DB01243	2722	chloroxine
+DB00652	441278	Pentazocine
+DB00454	4058	Pethidine
+DB01209	3033053	Dezocine
+budipine		
+DB00949	3331	felbamate
+DB01043	4054	memantine
+DB04896	11622909	milnacipran
+DB09481	11029	magnesium carbonate
+cycloserine-(d)		
+DB01173	4601	orphenadrine
+DB00289	54841	atomoxetine
+DB01396	441207	Digitoxin
+DB00511	5284512	
+DB01430	33887	almitrine
+DB01378	888	MAGNESIUM
+DB01119	3019	diazoxide
+DB13996	8896	MAGNESIUM ACETATE
+DB06697	68911	
+DB01158	2431	bretylium
+DB00390	2724385	digoxin
+DB00774	3647	hydroflumethiazide
+DB01092	439501	ouabain
+DB01021	5560	trichlormethiazide
+DB01188	2749	ciclopirox
+DB00204	71329	
+DB00384	5546	triamterene
+DB05541	9837243	brivaracetam
+DB00252	1775	phenytoin
+DB00999	3639	hydrochlorothiazide
+DB00391	5355	SULPIRIDE
+DB00869	5284549	dorzolamide
+DB00703	4100	methazolamide
+DB00562	2343	benzthiazide
+DB01194	68844	brinzolamide
+DB00311	3295	ethoxzolamide
+DB03255	996	Phenol
+DB00880	2720	chlorothiazide
+DB00232	4121	methyclothiazide
+DB01144	3038	diclofenamide
+DB00436	2315	bendroflumethiazide
+DB00423	4107	methocarbamol
+DB01325	6307	quinethazone
+DB01031	3284	ethinamate
+DB00310	2732	chlorthalidone
+DB04665	323	coumarin
+DB00075		Muromonab-CD3
+DB00695	3440	furosemide
+DB11085	5054	resorcinol
+DB01099	3366	flucytosine
+DB01035	4913	procainamide
+DB01278	137699448	Pramlintide
+fenigam		
+DB00837	44115	
+DB02530	119	GAMMA-AMINOBUTYRIC ACID
+DB01080	5665	vigabatrin
+DB00643	4030	mebendazole
+DB08860	5282452	pitavastatin
+DB01098	446157	rosuvastatin
+DB00175	54687	pravastatin
+DB01095	1548972	fluvastatin
+DB01076	60823	atorvastatin
+DB00439	446156	
+DB00626	10909430	bacitracin
+DB08888		ocriplasmin
+DB04106	46936889	fotemustine
+DB00122	305	Choline
+DB14006	54686350	choline salicylate
+DB00672	2727	chlorpropamide
+DB01120	3475	gliclazide
+DB01251	91610	gliquidone
+DB01219	6914273	dantrolene
+DB09085	5411	tetracaine
+DB11748	3032771	benfotiamine
+DB00107		oxytocin
+DB00995	70788951	auranofin
+DB00309	11643449	vindesine
+DB01005	3657	hydroxyurea
+DB00441	60750	gemcitabine
+DB05260	61635	
+DB00761	4873	potassium chloride
+DB08961	2273	azosemide
+DB02925	4849	piretanide
+DB09036		Siltuximab
+DB06273		Tocilizumab
+DB11767		sarilumab
+DB01074	4746	perhexiline
+DB00176	5324346	fluvoxamine
+DB00199	12560	erythromycin
+DB00280	3114	disopyramide
+DB06217	9930049	vernakalant
+DB00457	4893	prazosin
+DB12082	5663	vesnarinone
+DB00590	3157	doxazosin
+DB00604	6917698	Cisapride
+DB01162	5401	terazosin
+DB00908	441074	quinidine
+DB12364	10275777	betrixaban
+DB00679	5452	Thioridazine
+DB00276	2179	amsacrine
+DB01211	84029	clarithromycin
+DB00455	3957	loratadine
+DB00342	5405	Terfenadine
+DB00537	2764	ciprofloxacin
+DB01195	3356	flecainide
+DB00044		Lutropin alfa
+DB00014	5311128	goserelin-acetate
+DB09126		
+DB00097		Choriogonadotropin alfa
+DB06719		Buserelin
+DB00032		Follicle Stimulating Hormone
+DB00433	4917	prochlorperazine
+DB05271	59227	rotigotine
+DB09223	125564	blonanserin
+DB11274	114948	
+DB08922	115368	perospirone
+DB00450	3168	droperidol
+DB00875	5281881	flupentixol
+DB06684	6918314	vilazodone
+DB01235	6047	levodopa
+DB01184	3151	domperidone
+DB00502	3559	haloperidol
+DB12478	4850	piribedil
+haloperidol-decanoate		
+DB06016	11154555	cariprazine
+DB06288	2159	amisulpride
+nemonapride		
+DB04946	71360	iloperidone
+clebopride		
+DB09097	3086401	quinagolide
+DB01624	5311507	zuclopenthixol
+DB12867	16363	benperidol
+DB09128	11978813	brexpiprazole
+DB08815	213046	lurasidone
+DB00372	5440	thiethylperazine
+DB00508	5568	triflupromazine
+DB01618	23897	molindone
+DB01621	62867	Pipotiazine
+DB01233	4168	metoclopramide
+DB01622	9429	thioproperazine
+DB00662	5577	trimethobenzamide
+DB12401	2448	bromperidol
+r(-)-apomorphine		
+DB00915	2130	amantadine
+DB01623	941651	thiothixene
+DB09018	2446	bromopride
+DB04924	3792	itopride
+DB04844	6018	tetrabenazine
+DB01425	135413504	alizapride
+DB00933	4078	mesoridazine
+DB00800	3341	fenoldopam
+DB00297	2474	bupivacaine
+DB09083	132999	ivabradine
+DB00026		Anakinra
+DB07477	3332	felbinac
+DB00379	4178	mexiletine
+DB00338	4594	omeprazole
+DB08995	5281613	diosmin
+DB00682	54678486	warfarin
+DB01220	6436173	rifaximin
+DB13179	202225	troleandomycin
+DB00754	3292	ethotoin
+DB00531	2907	cyclophosphamide
+DB01181	3690	ifosfamide
+DB00564	2554	carbamazepine
+DB01045	135398735	rifampin
+DB09035		Nivolumab
+DB09037		Pembrolizumab
+DB00146	5283731	Calcidiol
+falecalcitriol		
+DB00910	5281104	paricalcitol
+DB06410	5281107	doxercalciferol
+DB02300	5288783	calcipotriol
+DB00136	5280453	calcitriol
+DB00169	5280795	cholecalciferol
+DB13689	5283734	tacalcitol
+DB01070	5311071	dihydrotachysterol
+DB00153	5280793	ergocalciferol
+DB06272	12019456	maxacalcitol
+DB01206	3950	lomustine
+DB00042		botulinum toxin type B
+DB00017		Salmon Calcitonin
+DB00250	2955	dapsone
+DB00440	5578	trimethoprim
+DB06813	148121	pralatrexate
+DB00563	126941	methotrexate
+DB01157	5583	Trimetrexate
+DB00640	60961	adenosine
+DB00824	1676	
+DB11757	5311037	istradefylline
+DB04932		Defibrotide
+DB06213	219024	regadenoson
+DB01412	5429	Theobromine
+DB01036	443879	tolterodine
+DB00185	25137844	cevimeline
+DB04843	4057	mepenzolate
+DB11235	5457	thonzylamine
+aceclidine		
+DB00517	21867154	Anisotropine Methylbromide
+DB00424	154417	hyoscyamine
+DB00462	23724781	Methylscopolamine bromide
+DB01062	4634	oxybutynin
+DB00340	4167	metixene
+DB01085	5910	pilocarpine
+DB00715	43815	paroxetine
+DB01409	5487427	tiotropium
+DB09167	5284550	dosulepin
+DB00376	5572	trihexyphenidyl
+DB00747	3000322	scopolamine
+DB03128	187	acetylcholine
+DB00411	2551	carbachol
+DB00383	4642	oxyphencyclimine
+DB08897	11434515	aclidinium
+vinburnine		
+DB01591	154059	solifenacin-succinate
+DB00505	20299	tridihexethyl
+DB09262	6433090	imidafenacin
+DB00804	3042	dicycloverine
+DB06702	6918558	fesoterodine
+DB01231	3055	diphenidol
+DB00670	4848	pirenzepine
+DB06709	1993	methacholine
+DB00809	5593	tropicamide
+DB00387	4919	procyclidine
+DB00332	657309	ipratropium
+trepibutone		
+DB00771	2784	clidinium
+DB11181	5282593	homatropine
+DB00986	3494	Glycopyrronium
+DB00572	174174	atropine
+DB00729	6126	
+DB09076	11519070	umeclidinium
+DB00782	4934	propantheline
+DB00810	2381	biperiden
+DB00725	6646	Homatropine Methylbromide
+DB01019	2370	bethanechol
+diphemanil		
+DB00835	6834	brompheniramine
+DB00496	444031	darifenacin
+DB01625	3775	isopropamide-iodide
+DB00036		Coagulation factor VIIa Recombinant Human
+DB09332	8555	Kappadione
+DB06439		Tyloxapol
+DB04878	444020	voglibose
+DB00284	9811704	acarbose
+DB00674	9651	galantamine
+DB01483	2294	barbital
+DB00657	4032	mecamylamine
+DB01199	6000	tubocurarine
+DB01164	5284359	Calcium Chloride
+DB00052		Somatropin recombinant
+DB00082		Pegvisomant
+DB08879		Belimumab
+DB00112		Bevacizumab
+DB01270		Ranibizumab
+DB08885		AFLIBERCEPT
+DB09047	11567473	finafloxacin
+DB01059	4539	norfloxacin
+DB00978	3948	lomefloxacin
+DB01165	4583	ofloxacin
+DB01177	42890	idarubicin
+DB00685	62959	trovafloxacin
+DB04576	3357	fleroxacin
+DB00385	454216	valrubicin
+DB01204	4212	mitoxantrone
+DB04967	10180	
+DB01208	60464	sparfloxacin
+DB01137	149096	levofloxacin
+DB00467	3229	Enoxacin
+DB06193	134019	pixantrone
+DB00218	152946	moxifloxacin
+DB04898	9574101	Ximelagatran
+dabigatran-etexilate		
+DB06695	135565674	
+DB00001		Lepirudin
+DB12598	4413	NAFAMOSTAT
+dabigatran		
+DB09109		TUROCTOCOG ALFA
+DB00006	16129704	bivalirudin
+DB11166		ANTITHROMBIN ALFA
+DB09228		CONESTAT ALFA
+DB05777		THROMBOMODULIN ALFA
+DB00513	564	6-Aminocaproic Acid
+DB08932	16004692	macitentan
+DB06403	6918493	ambrisentan
+DB00559	104865	bosentan
+DB06268	216235	Sitaxentan
+ACT-132577		
+DB00092		alefacept
+DB09016	21772	Butriptyline
+DB00843	3152	donepezil
+DB00924	2895	cyclobenzaprine
+DB08810	68867	Cinitapride
+DB00751	3241	epinastine
+DB04838	2893	cyclandelate
+DB00360	135398654	sapropterin
+DB00579	4020	mazindol
+DB01105	5210	Sibutramine
+DB01156	444	bupropion
+DB00285	5656	venlafaxine
+DB00937	7029	amfepramone
+DB01146	3103	diphenylpyraline
+DB06700	125017	desvenlafaxine
+DB01576	5826	dextroamphetamine
+DB00745	4236	modafinil
+DB00865	5311017	Benzphetamine
+benztropine-mesylate		
+DB06701	154101	Dexmethylphenidate
+DB01255	11597698	Lisdexamfetamine
+DB00245	1201549	Benzatropine
+DB06413	9690109	armodafinil
+DB00422	4158	methylphenidate
+DB01175	146570	escitalopram
+DB00830	4762	Phenmetrazine
+DB01577	10836	Methamphetamine
+DB01114	2725	chlorphenamine
+DB00191	4771	phentermine
+DB01202	5284583	levetiracetam
+DB06694	5709	xylometazoline
+DB00706	129211	tamsulosin
+DB09205	4260	Moxisylyte
+DB01579	30487	Phendimetrazine
+DB00211	4195	midodrine
+DB06707	164739	levonordefrin
+DB00692	5775	phentolamine
+DB00575	2803	clonidine
+DB00298	3033538	dapiprazole
+DB00723	6082	methoxamine
+DB00388	6041	phenylephrine
+DB00862	135400189	vardenafil
+DB00203	135398744	sildenafil
+DB00207	447043	azithromycin
+DB06716	3038498	Fospropofol
+DB00425	5732	zolpidem
+DB00120	6140	L-Phenylalanine
+DB05630	56927674	Sodium stibogluconate
+DB01030	60700	topotecan
+SN-38		
+DB00762	60838	irinotecan
+DB00853	5394	temozolomide
+DB00686	37720	Pentosan Polysulfate
+DB00069		
+DB00068		Interferon beta-1b
+DB00008		Peginterferon alfa-2a
+DB00060		INTERFERON BETA-1A,RECOMBINANT
+DB00105		
+DB00034		Interferon Alfa-2a
+DB00022		Peginterferon alfa-2b
+DB00822	3117	disulfiram
+DB00738	4735	pentamidine
+DB09075	10280735	edoxaban
+DB06605	10182969	apixaban
+DB09258		Bemiparin
+DB01225		Enoxaparin
+DB06228	9875401	rivaroxaban
+DB00569	5282448	Fondaparinux
+DB00262	2578	carmustine
+DB09140	977	Oxygen
+DB09270	5281915	coenzyme Q10
+DB00435	145068	Nitric Oxide
+DB00150	6305	tryptophan
+DB00759	54675776	tetracycline
+DB11157	2202	
+DB00117	6274	L-Histidine
+DB00254	54671203	doxycycline
+DB12159		DUPILUMAB
+meldonium		
+DB09026	5493444	aliskiren-hemifumarate
+DB00212	6324659	Remikiren
+DB09046		metreleptin
+DB00787	135398513	acyclovir
+tebipenem		
+DB11059		CARMELLOSE
+DB01281		Abatacept
+DB11363	49806720	alectinib
+DB00012		Darbepoetin alfa
+DB00016		Erythropoietin
+DB09107		METHOXY POLYETHYLENE GLYCOL-EPOETIN BETA
+DB08894		PEGINESATIDE
+DB09030	10077130	vorapaxar
+DB00086		Streptokinase
+DB00028		
+sodium-tetradecyl-sulfate		
+DB00464	23665772	Sodium Tetradecyl Sulfate
+DB01257		Eculizumab
+DB00004		Denileukin diftitox
+DB00041		aldesleukin
+DB05311		ECALLANTIDE
+DB00110		palivizumab
+DB00081		Tositumomab
+DB00073		Rituximab
+DB00095		efalizumab
+DB00087		Alemtuzumab
+DB00056		Gemtuzumab ozogamicin
+DB00078		Ibritumomab tiuxetan
+DB00707		PORFIMER SODIUM
+DB08811	5502	tofisopam
+DB06809	65015	plerixafor
+DB00452	8378	Framycetin
+DB06218	219078	lacosamide
+DB00776	34312	oxcarbazepine
+DB09119	179344	eslicarbazepine-acetate
+DB01121	4753	phenacemide
+DB00532	4060	mephenytoin
+DB06201	129228	rufinamide
+DB01133	60937	tiludronate
+DB06692		Aprotinin
+DB09108		SIMOCTOCOG ALFA
+DB06152	4567	buphenine
+adiphenine		
+DB08941	11779629	isoxsuprine
+DB01274	3083544	Arformoterol
+clorprenaline		
+DB00867	33572	ritodrine
+DB01364	9294	ephedrine
+DB12248	5606	tulobuterol
+DB09082	10184665	vilanterol
+DB00449	3105	dipivefrine
+DB01366	688561	procaterol
+DB08957	3609	hexoprenaline
+DB01408	54766	bambuterol
+DB00816	4086	metaproterenol
+carazolol		
+DB09080	11504295	olodaterol
+DB09204	2239	arotinolol
+DB00099		Filgrastim
+DB12863	107706	sivelestat
+DB00033		
+DB01271		Idursulfase
+DB01279		Galsulfase
+camostat-mesilate		
+DB12831	3447	gabexate
+DB12023		benralizumab
+DB08870		brentuximab vedotin
+DB09331		daratumumab
+DB00302	5526	Tranexamic Acid
+DB06689	5282489	Monoethanolamine oleate
+DB00104	448601	octreotide
+DB04894	6918026	Vapreotide
+DB06663	9941444	pasireotide
+DB06791	71349	Lanreotide
+DB04895		Pegaptanib
+DB04465	440995	Lactose
+DB00266	54676038	dicoumarol
+DB08828	24776445	vismodegib
+DB09143	24775005	sonidegib
+DB06271		Sulodexide
+DB09067	16132344	corticorelin ovine triflutate
+DB01839	1030	propylene glycol
+DB09310		CATRIDECACOG
+acefylline		
+etofylline		
+DB06285		Teriparatide
+DB05829		PARATHYROID HORMONE
+DB11696	107751	racecadotril
+DB09292	9811834	sacubitril
+mozavaptan		
+DB02638	72081	terlipressin
+DB00035	5311065	Desmopressin
+DB06212	443894	tolvaptan
+DB09059	5311010	atosiban
+DB00872	151171	conivaptan
+DB00067	11979316	vasopressin
+desmopressin-acetate		
+DB00357	2145	aminoglutethimide
+DB00876	5281037	eprosartan
+DB00177	60846	valsartan
+DB00678	3961	losartan
+DB00275	158781	olmesartan
+DB09279	9870652	fimasartan
+DB13919	2541	candesartan
+DB00094		
+DB00066		
+DB00914	8249	Phenformin
+DB00980	208902	ramelteon
+DB00415	6249	ampicillin
+DB09049	56959087	naloxegol
+DB00504	5359371	levallorphan
+DB00552	439693	pentostatin
+DB01143	2141	amifostine
+DB01285		Corticotropin
+DB00561	3156	doxapram
+DB11699	656665	tropisetron
+DB05332		Romiplostim
+DB11995	9852519	avatrombopag
+DB06210	135449332	eltrombopag
+flopropione		
+DB09244	68802	pirlindole
+DB01616	3678	alverine
+DB12833	91273	tandospirone
+DB06196	6918173	Icatibant
+icatibant-acetate		
+DB08918	6917779	Levomilnacipran
+DB00344	4976	protriptyline
+DB00906	60648	tiagabine
+DB00093	14257662	Felypressin
+DB01250	22419	olsalazine
+DB06211	73303	doripenem
+DB01597	6435415	Cilastatin
+DB05679		Ustekinumab
+DB11834		guselkumab
+DB03085	757	glycolic acid
+DB00043		omalizumab
+DB00446	5959	chloramphenicol
+DB12865	71511839	velcalcetide
+DB00994		Neomycin
+DB01012	156419	cinacalcet
+strontium-ranelate		
+DB00673	135413536	aprepitant
+maropitant		
+DB09048	6451149	netupitant
+DB06717	135413538	fosaprepitant-dimeglumine
+DB00484	2435	brimonidine
+DB00697	5487	tizanidine
+DB01018	3519	guanfacine
+DB00964	2216	apraclonidine
+DB00629	3517	Guanabenz
+DB00968	38853	methyldopa
+DB00797	5504	tolazoline
+DB00167	6306	L-Isoleucine
+DB00392	3290	profenamine
+DB06243	3009	eflornithine
+DB00545	4991	mestinon
+DB00382	1935	tacrine
+DB01122	2131	ambenonium
+DB00989	77991	rivastigmine
+DB01400	4456	neostigmine
+DB00944	5966	demecarium
+DB00981	5983	physostigmine
+DB00733	135398747	pralidoxime
+pralidoxime-chloride		
+DB12153	13804	citicoline
+DB01010	3202	edrophonium
+methylene-blue		
+DB00863	5039	ranitidine
+DB03852	2758	eucalyptol
+DB09043		Albiglutide
+DB06655		liraglutide
+DB13928	122189768	
+DB09045		Dulaglutide
+DB09265	131704317	Lixisenatide
+DB01276		exenatide
+DB00403	16129675	Ceruletide
+DB01438	4756	Phenazopyridine
+DB00868	7699	benzonatate
+DB01426	441080	ajmaline
+DB00192	52195	
+DB00680	34633	moracizine
+DB01056	38945	tocainide
+DB01320	56339	fosphenytoin
+DB00645	3180	dyclonine
+DB00243	56959	ranolazine
+DB01228	48041	Encainide
+DB00024		
+ephedrine-(racemic)		
+DB06711	4436	naphazoline
+DB08890	16158208	linaclotide
+DB01057	10548	Ecothiopate
+DB11614	133017	rupatadine
+DB09166	3307	etizolam
+DB01011	4174	metyrapone
+DB05812	132971	abiraterone
+DB01090	5850	pentolinium
+DB11136	23976	CHROMIUM
+DB00395	2576	carisoprodol
+DB06264	5511	tolperisone
+DB00916	4173	metronidazole
+DB01201	135403821	rifapentine
+DB00553	4114	methoxsalen
+DB06290	118984465	simeprevir
+DB00300	5481350	tenofovir-disoproxil
+DB00976	3002190	telithromycin
+DB13036	123879	ramatroban
+DB06739	2449	seratrodast
+picotamide		
+DB11629	9867642	laropiprant
+DB01207	5362391	ridogrel
+DB05389	3000391	TETRACHLORODECAOXIDE
+DB12095	25181577	telotristat ethyl
+telotristat-ethyl		
+DB00765	441350	metirosine
+DB01198	5735	Zopiclone
+DB08986	135413553	etifoxine
+DB00962	5719	zaleplon
+DB06470	10783	clomethiazole
+taltirelin		
+DB04931	16197727	MSH, 4-Nle-7-Phe-alpha-
+DB01020	27661	isosorbide-mononitrate
+DB09282	5353788	molsidomine
+DB08931	11304743	riociguat
+DB06168		Canakinumab
+DB09029		secukinumab
+DB04876	6918537	vildagliptin
+DB01261	4369359	sitagliptin
+DB11950	11949652	teneligliptin
+DB08882	10096344	linagliptin
+DB06335	11243969	saxagliptin
+DB12417	44513473	anagliptin
+DB06203	11450633	alogliptin
+trelagliptin		
+DB04572	5453	thiotepa
+DB01232	441243	Saquinavir
+DB01609	214348	deferasirox
+DB11742	3191	ebastine
+DB01333	38103	cefradine
+DB01263	468595	posaconazole
+DB01082	19649	streptomycin
+5-hydroxytryptophan		
+DB00593	3291	ethosuximide
+DB00617	8280	paramethadione
+DB05246	6476	methsuximide
+DB00832	6839	phensuximide
+DB00347	5576	trimethadione
+DB09215	65679	droxicam
+mofezolac		
+DB06219		Dalbavancin
+thiostrepton		
+DB01075	3100	diphenhydramine
+DB01148	3354	flavoxate
+caramiphen		
+DB08801	21855	dimetindene
+DB09418	516900	Potassium perchlorate
+DB14061	3634	hycanthone
+DB11635		tocofersolan
+DB01275	3637	hydralazine
+DB00400	441140	griseofulvin
+DB09146	91663255	Sucroferric Oxyhydroxide
+DB06775	121396	carglumic-acid
+DB08835	210320	Spaglumic acid
+DB11081	24012	Aluminium chloride
+DB06720		velaglucerase alfa
+DB01113	4680	papaverine
+DB12319	2333	benzbromarone
+DB12947	18343	doxifluridine
+ftorafur		
+DB00650	135403648	leucovorin
+DB00544	3385	5-fluorouracil
+DB01101	60953	capecitabine
+DB00293	135400182	raltitrexed
+DB00322	5790	floxuridine
+DB09010	2577	carmofur
+DB00432	6256	Trifluridine
+DB00691	91270	moexipril
+DB00722	5362119	lisinopril
+DB00535	6915944	cefdinir
+bifemelane		
+DB01037	26757	selegiline
+DB00601	441401	linezolid
+DB01626	4688	pargyline
+DB09245	34521	toloxatone
+DB01247	3759	isocarboxazid
+DB01171	4235	moclobemide
+psoralen		
+DB01168	4915	procarbazine
+DB01046	157920	lubiprostone
+DB01216	57363	finasteride
+DB01126	6918296	dutasteride
+DB00152	1130	thiamine
+DB00610	5906	metaraminol
+DB00699	34040	nicergoline
+buflomedil		
+DB12230	2472	bunazosin
+adrenalone		
+DB06706	22297	isometheptene-mucate
+DB09040	489181	efinaconazole
+DB00196	3365	fluconazole
+DB01167	55283	itraconazole
+DB00123	5962	L-Lysine
+DB00165	1054	pyridoxine
+DB00147	1050	pyridoxal
+DB00235	4197	milrinone
+DB01166	2754	cilostazol
+DB09516	9015	mequinol
+DB00600	7638	monobenzone
+azelaic-acid		
+DB00548	2266	Azelaic Acid
+DB09526	785	hydroquinone
+DB01440	10413	Gamma Hydroxybutyric Acid
+sodium-oxybate		
+DB00973	150311	ezetimibe
+DB00138	67678	L-Cystine
+DB01170	3518	guanethidine
+DB04840	2966	debrisoquin
+DB00234	127151	reboxetine
+DB09185	5666	viloxazine
+DB00226	38521	guanadrel
+DB00161	6287	L-Valine
+DB11362	9913767	selexipag
+DB00929	5282381	misoprostol
+DB01240	5282411	epoprostenol
+chlorogenic-acid		
+DB00917	5280360	Dinoprostone
+DB12836	11677589	grapiprant
+DB09034	24965990	suvorexant
+DB09069	21109	trimetazidine
+DB00724	57469	imiquimod
+penfluridol		
+DB09343	6323266	tipiracil
+DB01327	33255	cefazolin
+DB01089	8550	deserpidine
+DB06714	7558	propylhexedrine
+DB01125	2197	anisindione
+DB01022	5284607	phytonadione
+DB11656	5042	rebamipide
+DB11753	6324616	rifamycin
+DB00551	1990	Acetohydroxamic Acid
+DB01117	74989	atovaquone
+DB08880	54684141	teriflunomide
+DB00528	65866	lercanidipine
+DB00498	4760	phenindione
+DB01418	54676537	acenocoumarol
+DB00946	54680692	phenprocoumon
+DB12017	5282440	ozagrel
+DB00010		Sermorelin
+DB08869	56928011	tesamorelin
+levocarnitine-propionate		
+DB11595		Atezolizumab
+DB00437	135401907	allopurinol
+DB04854	134018	febuxostat
+DB01685	5288320	topiroxostat
+DB09302		Alirocumab
+DB04880	53708	enoximone
+pimobendan		
+olprinone		
+DB00261	135409400	anagrelide
+DB00847	6058	cysteamine
+DB06317		Elotuzumab
+DB11783	5464343	imidapril
+DB00790	107807	perindopril
+DB00542	5362124	benazepril
+DB00492	9601226	fosinopril
+DB01340	56330	cilazapril
+DB00584	5388962	enalapril
+quinaprilat		
+DB09477	5462501	enalaprilat
+DB08836	443874	temocapril
+DB00881	54892	quinapril
+DB01348	5311447	Spirapril
+DB00519	5484727	trandolapril
+DB00178	5362129	ramipril
+DB05351	9578005	dexlansoprazole
+DB00213	4679	pantoprazole
+revaprazan		
+omeprazole-magnesium		
+DB01129	5029	rabeprazole
+DB00736	9568614	esomeprazole
+phosphatidylcholine		
+DB06654	131682	safinamide
+DB06824	5565	trientine
+DB00348	115355	nitisinone
+DB00857	1549008	terbinafine
+DB08992	3236	eperisone
+DB00190	34359	carbidopa
+DB12783	2327	benserazide
+melevodopa		
+DB07615	5282230	tranilast
+DB09271	20054871	cimetropium
+aminopentamide		
+DB00209	5284632	trospium
+DB00940	4097	methantheline
+pipenzolate		
+DB12554	4031	mebeverine
+DB00979	2905	cyclopentolate
+DB00942	2911	Cycrimine
+piperidolate		
+DB00366	3162	doxylamine
+DB00654	5311221	latanoprost
+DB00287	5282226	travoprost
+DB08819	9868491	Tafluprost
+DB11660	11156438	
+DB00587	6436135	
+DB00549	5717	zafirlukast
+DB06754		Danaparoid
+DB11598		Antithrombin III
+DB01265	159269	telbivudine
+DB06155	104850	Rimonabant
+DB00501	2756	cimetidine
+ipragliflozin-l-proline		
+DB11827	44814423	ertugliflozin
+DB00713	6196	Oxacillin
+DB01053	5904	benzylpenicillin
+tannic-acid		
+DB00950	3348	fexofenadine
+DB00985	10660	dimenhydrinate
+DB00405	16960	Dexbrompheniramine
+DB08802	3781	Isothipendyl
+DB11591	185460	bilastine
+DB06282	1549000	levocetirizine
+DB01106	54385	levocabastine
+DB01237	2444	Bromodiphenhydramine
+DB00902	14677	Methdilazine
+DB00719	19861	azatadine
+DB01246	5574	Trimeprazine
+DB04890	2350	bepotastine
+DB08800	25295	chloropyramine
+DB00967	124087	desloratadine
+DB00748	2564	carbinoxamine
+DB09555	5281070	Dexchlorpheniramine maleate
+DB01620	4761	pheniramine
+DB00557	3658	hydroxyzine
+DB00341	2678	cetirizine
+DB12523	65906	mizolastine
+DB01619	11291	phenindamine
+DB01084	3219	emedastine
+DB08799	2200	antazoline
+DB00283	26987	clemastine
+DB00427	5282443	triprolidine
+DB00737	4034	meclizine
+DB08936	2710	chlorcyclizine
+DB00885	57697	pemirolast
+DB00972	2267	azelastine
+DB01071	4066	Mequitazine
+DB09488	5284514	acrivastine
+DB06766	19371515	alcaftadine
+DB01615	26035	Aceprometazine
+DB06691	4992	mepyramine
+DB04837	2795	clofedanol
+DB00792	5587	tripelennamine
+ammonium-lactate		
+DB08826	2972	deferiprone
+DB09290	108000	ramosetron
+DB00757	3033818	dolasetron
+DB00889	5284566	granisetron
+DB00969	2099	alosetron
+DB00377	6337614	palonosetron
+DB00417	6869	penicillin-v-potassium
+DB00848	26879	Levamisole
+DB00894	13769	testolactone
+DB01006	3902	letrozole
+DB00990	60198	exemestane
+DB01217	2187	anastrozole
+DB00666	25077405	Nafarelin
+DB00106	16131215	Abarelix
+DB06788	56927879	Histrelin
+DB06785	16130957	ganirelix
+DB00644	36523	gonadorelin
+DB06699	16136245	degarelix
+DB06825	25074470	triptorelin
+DB00007	657181	leuprolide
+DB00820	110635	tadalafil
+DB06237	9869929	avanafil
+DB11792	135497803	mirodenafil
+DB06267	135413547	Udenafil
+DB00214	41781	torasemide
+DB00038		Oprelvekin
+DB01284	16133751	Cosyntropin
+DB08816	9871419	ticagrelor
+DB00758	60606	clopidogrel
+DB06209	6918456	prasugrel
+DB00208	5472	ticlopidine
+DB06441	9854012	CANGRELOR
+DB00470	16078	
+DB06764	5419	tetrahydrozoline
+DB06479	4938	propentofylline
+DB01282	16681432	carbetocin
+DB06643		Denosumab
+DB00700	443872	eplerenone
+DB09015	656615	potassium-canrenoate
+desoxycorticosterone-pivalate		
+DB01086	2337	Benzocaine
+DB11988		ocrelizumab
+DB06650		ofatumumab
+DB08935		obinutuzumab
+DB00550	657298	propylthiouracil
+DB00389	31072	carbimazole
+DB00763	1349907	methimazole
+xipamide		
+DB01324	4870	polythiazide
+DB00524	4170	metolazone
+DB00429	45266502	Carboprost Tromethamine
+DB06480	3052762	prucalopride
+DB11675	119584	mosapride
+DB06688		sipuleucel-T
+DB05265	65781	ecabet
+DB08806	5105	roxatidine-acetate
+DB00927	3325	famotidine
+DB00585	3033637	nizatidine
