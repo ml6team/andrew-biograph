@@ -10,13 +10,27 @@ This README would normally document whatever steps are necessary to get your app
 
 ### How do I get set up? ###
 
-Installation
+### Installation and setup
 
 To clone the git repository, run the following 
 
 ```
 git clone git@bitbucket.org:ml6team/biographs.git
 ```
+
+#### Multiscale Interactoms
+The multiscale interactome is hosted by Stanford University. All data is available at
+[http://snap.stanford.edu/multiscale-interactome/data/data.tar.gz](http://snap.stanford.edu/multiscale-interactome/data/data.tar.gz).To download and unpack the data, please run the following:
+
+```
+mkdir multiscale_interactome
+cd multiscale_interactome
+wget http://snap.stanford.edu/multiscale-interactome/data/data.tar.gz
+tar -xvf data.tar.gz
+'''
+
+
+
 
 * Summary of set up
 * Configuration
