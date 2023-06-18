@@ -27,7 +27,7 @@ mkdir multiscale_interactome
 cd multiscale_interactome
 wget http://snap.stanford.edu/multiscale-interactome/data/data.tar.gz
 tar -xvf data.tar.gz
-'''
+```
 
 
 
