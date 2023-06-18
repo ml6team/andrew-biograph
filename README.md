@@ -29,6 +29,13 @@ wget http://snap.stanford.edu/multiscale-interactome/data/data.tar.gz
 tar -xvf data.tar.gz
 ```
 
+#### Setup
+Code is written in Python3. Please install the packages present in the requirements.txt file. You may use:
+
+```
+pip install -r requirements.txt
+```
+
 
 
 

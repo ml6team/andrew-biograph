@@ -1,6 +1,11 @@
+#numpy
+#pandas
+#networkx
+#pyvis
+#torch
+#torch_geometric
 numpy
-pandas
-networkx
-pyvis
-torch
 torch_geometric
+pyvis
+rdkit
+py3Dmol
