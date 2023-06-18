@@ -10,6 +10,14 @@ This README would normally document whatever steps are necessary to get your app
 
 ### How do I get set up? ###
 
+Installation
+
+To clone the git repository, run the following 
+
+```
+git clone git@bitbucket.org:ml6team/biographs.git
+```
+
 * Summary of set up
 * Configuration
 * Dependencies
