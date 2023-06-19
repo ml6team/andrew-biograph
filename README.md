@@ -36,7 +36,11 @@ Code is written in Python3. Please install the packages present in the requireme
 pip install -r requirements.txt
 ```
 
-
+###### Note: If you installed your own NVIDIA Drivers / CUDA Toolkit, it may be important to manually uninstall the 
+Pytorch CUDA tools that are downloaded when installing ```torch```. This can be accomplished with the followin command.
+```
+pip uninstall nvidia_cublas_cu11
+```
 
 
 * Summary of set up

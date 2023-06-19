@@ -5,6 +5,7 @@
 #torch
 #torch_geometric
 numpy
+torch
 torch_geometric
 pyvis
 rdkit
