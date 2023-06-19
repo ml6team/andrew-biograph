@@ -55,6 +55,18 @@ For example, if using `torch` version `1.13.1` with CUDA version `cu117`, run th
 pip install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-1.13.1+cu117.html
 ```
 
+### Miscellaneous
+##### Accessing Google Cloud
+To authorize access to google cloud, run the following:
+```
+gcloud auth login
+```
+
+Files can then be copied to and from from any buckets that are authorized with the same account using the following:
+```
+gsutil cp {path/to/file} gs://{bucket-name}
+```
+
 
 * Summary of set up
 * Configuration
