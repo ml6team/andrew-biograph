@@ -20,7 +20,8 @@ def split_data(
         neg_sampling_ratio=neg_sampling_ratio,
         add_negative_train_samples=neg_train_samples,
         edge_types=edge_types,
-        rev_edge_types=rev_edge_types)
+        rev_edge_types=rev_edge_types, 
+        is_undirected=True)
     train_data, val_data, test_data = transform(data)
     
     return train_data, val_data, test_data
@@ -99,7 +100,7 @@ def sample_data(dataset, ratio=0.5, method="down"):
 
 def create_minibatches(
         data, edge_types, 
-        num_khop_neighbors = [20,10], neg_sampling_ratio=2.0, batch_size=128):
+        num_khop_neighbors = [20,10], neg_sampling_ratio=0.0, batch_size=128, shuffle=True):
     # In the first hop, we sample at most 20 neighbors.
     # In the second hop, we sample at most 10 neighbors.
     # In addition, during training, we want to sample negative edges on-the-fly with
@@ -110,80 +111,90 @@ def create_minibatches(
     # Define seed edges:
     edge_label_index = data[edge_types].edge_label_index
     edge_label = data[edge_types].edge_label
-    train_loader = LinkNeighborLoader(
+    loader = LinkNeighborLoader(
         data=data,
         num_neighbors=num_khop_neighbors,
         neg_sampling_ratio=neg_sampling_ratio,
         edge_label_index=(edge_types, edge_label_index),
         edge_label=edge_label,
         batch_size=batch_size,
-        shuffle=True)
+        shuffle=shuffle)
     
-    return train_loader
+    return loader
 
 
 
 
-def train_model(model, src_node_type, dest_node_type, edge_types,
-                epochs, train_loader, val_data, optimizer, device):
+def train_link_predictor(
+        model, predictor, src_node_type, dest_node_type, edge_types,
+        loader, optimizer, device, train=True):
     
-    model.train()
-    for epoch in range(1, epochs+1):
-        total_loss = total_examples = total_auc = val_total_loss = val_total_auc = 0
-        for train_batch in tqdm.tqdm(train_loader):
-            # Reset the optimizer for each batch.
-            optimizer.zero_grad()
-            train_batch.to(device)
-            
-            # Obtain node embeddings.
-            z = model(train_batch.x_dict, train_batch.edge_index_dict)
-            
-            # Retrieve embeddings for the nodes in the specific edge type.
-            z_src = z[src_node_type]
-            z_dest = z[dest_node_type]
-            
-            
-            edge_label_index = train_batch[edge_types].edge_label_index
-            edge_feat_src = z_src[edge_label_index[0]]
-            edge_feat_dest = z_dest[edge_label_index[1]]
-            edge_preds = (edge_feat_src * edge_feat_dest).sum(dim=-1)
-            ground_truth = train_batch[edge_types].edge_label
-            loss = F.binary_cross_entropy_with_logits(edge_preds, ground_truth)
-            auc = get_auc(ground_truth, edge_preds)
-            
-            # Update the model parameters
-            loss.backward()
-            optimizer.step()
-            
-            # Add the loss / auc for this batch to the total loss / auc for the epoch.
-            total_loss += float(loss) * edge_preds.numel()
-            total_auc += float(auc) * edge_preds.numel()
-            #val_total_loss += float(val_loss) * val_edge_preds.numel()
-            #val_total_auc += float(val_auc) * val_edge_preds.numel()
-            
-            total_examples += edge_preds.numel()
-        
-        
+    # Set the model to training or evaluation mode.
+    if train:
+        model.train()
+        predictor.train()
+    else:
         model.eval()
-        z = model(val_data.x_dict, val_data.edge_index_dict)
+        predictor.eval()
     
-            
+    # Initialize epoch-level evaluation metrics to 0.
+    total_loss = total_examples = total_auc = 0
+    
+    # Iterate over each batch in the loader.
+    for batch in tqdm.tqdm(loader):
+        
+        # Reset the optimizer for each batch and send data to the device.
+        optimizer.zero_grad()
+        batch.to(device)
+
+        # Obtain node embeddings.
+        z = model(batch.x_dict, batch.edge_index_dict)
+
         # Retrieve embeddings for the nodes in the specific edge type.
         z_src = z[src_node_type]
         z_dest = z[dest_node_type]
-        val_edge_label_index = val_data[edge_types].edge_label_index
-        val_edge_feat_src = z_src[val_edge_label_index[0]]
-        val_edge_feat_dest = z_dest[val_edge_label_index[1]]
-        val_edge_preds = (val_edge_feat_src * val_edge_feat_dest).sum(dim=-1)
-        val_ground_truth = val_data[edge_types].edge_label
-        val_loss = F.binary_cross_entropy_with_logits(val_edge_preds, val_ground_truth)
-        val_auc = get_auc(val_ground_truth, val_edge_preds)
-        
-        
-        print(f" Epoch: {epoch:03d}")
-        print(f" Loss     : {total_loss / total_examples:<10.4f} |     AUC:     {total_auc / total_examples:>10.4f}")
-        print(f" Val_Loss : {val_loss:<10.4f} |     Val_AUC: {val_auc:>10.4f}")
 
+        # Obtain predictions for specific edge type.
+        edge_label_index = batch[edge_types].edge_label_index
+        edge_feat_src = z_src[edge_label_index[0]]
+        edge_feat_dest = z_dest[edge_label_index[1]]
+        edge_preds = predictor(edge_feat_src, edge_feat_dest)
+        #edge_preds = (edge_feat_src * edge_feat_dest).sum(-1) / (torch.norm(edge_feat_src)*torch.norm(edge_feat_dest))
+        #edge_preds = torch.sigmoid(edge_preds)
+        #edge_pred = torch.dot(edge_feat_src, edge_feat_dest)/(norm(edge_feat_src)*norm(edge_feat_dest))
+
+        # Compute the loss.
+        ground_truth = batch[edge_types].edge_label
+        loss = F.binary_cross_entropy_with_logits(edge_preds, ground_truth)
+        #loss = torch.nn.BCELoss(edge_preds, ground_truth)
+        
+        # If in training mode, compute the gradients and backpropogate.
+        if train:
+            loss.backward()
+            torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+            torch.nn.utils.clip_grad_norm_(predictor.parameters(), 1.0)
+            optimizer.step()
+
+        # Compute the area under the curve.
+        auc = get_auc(ground_truth, edge_preds)
+        if auc == "NA":
+            print(edge_preds)
+            print(ground_truth)
+            raise
+
+        # Add the loss / auc for this batch to the total loss / auc for the epoch.
+        total_loss += float(loss) * edge_preds.numel()
+        total_auc += float(auc) * edge_preds.numel()
+        total_examples += edge_preds.numel()
+        
+        del batch 
+        torch.cuda.empty_cache()
+        
+    epoch_loss = (total_loss / total_examples)
+    epoch_auc = (total_auc / total_examples)
+    
+    return epoch_loss, epoch_auc
+    
 
         
 
@@ -257,8 +268,8 @@ def get_auc(y, pred_y):
     """Calculate auc.
     """
     
-    y = y.detach().numpy()
-    pred_y = pred_y.detach().numpy()
+    y = y.cpu().detach().numpy()
+    pred_y = pred_y.cpu().detach().numpy()
     try:
         auc = roc_auc_score(y, pred_y)
     except ValueError:

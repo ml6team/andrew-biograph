@@ -22,34 +22,52 @@ class GCNEncoder(torch.nn.Module):
 
 
 class GAT(torch.nn.Module):
-    def __init__(self, hidden_channels, out_channels, heads=1):
+    def __init__(self, hidden_channels, out_channels, heads=6):
         super().__init__()
         self.conv1 = GATv2Conv((-1, -1), hidden_channels, add_self_loops=False, heads=heads)
-        self.lin1 = Linear(-1, hidden_channels)
-        
         self.conv2 = GATv2Conv(hidden_channels*heads, hidden_channels, add_self_loops=False, heads=heads)
-        self.lin2 = Linear(-1, hidden_channels)
-        self.conv3 = GATv2Conv(hidden_channels*heads, out_channels, add_self_loops=False, heads=1)
-        self.lin3 = Linear(-1, out_channels)
-        
+        self.conv3 = GATv2Conv(hidden_channels*heads, hidden_channels, add_self_loops=False, heads=heads)
+        self.conv4 = GATv2Conv(hidden_channels*heads, hidden_channels, add_self_loops=False, heads=1)
+        self.lin1 = Linear(hidden_channels, hidden_channels)
+        self.lin2 = Linear(-1, out_channels)
         
 
     def forward(self, x, edge_index):
-        x = self.conv1(x, edge_index) #+ self.lin1(x)
-        #x = self.lin1(x)
-        x = F.elu(x)
-        x = self.conv2(x, edge_index) #+ self.lin2(x)
-        #x = self.lin2(x)
-        x = F.elu(x)
-        x = self.conv3(x, edge_index)
-        x = F.dropout(x, p=0.5, training=self.training)
-        x = self.lin1(x)
+        x = self.conv1(x, edge_index)
         #x = F.elu(x)
-        #x = F.dropout(x, p=0.5, training=self.training)
-        #x = self.lin2(x)
-
-        
+        x = self.conv2(x, edge_index)
+        #x = F.elu(x)
+        x = self.conv3(x, edge_index)
+        #x = F.elu(x)
+        x = self.conv4(x, edge_index)
+        #x = F.elu(x)
+        x = self.lin1(x)
+        x = F.elu(x)
+        x = F.dropout(x, p=0.5, training=self.training)
+        x = self.lin2(x)
         return x
+
+    
+class DotProductLinkPredictor(torch.nn.Module):
+    def __init__(self, in_channels, hidden_channels, out_channels):
+        super(DotProductLinkPredictor, self).__init__()
+        self.lin1 = Linear(in_channels, hidden_channels)
+        self.lin2 = Linear(hidden_channels, out_channels)
+        
+    def forward(self, x_i, x_j):
+        
+        x = torch.cat([x_i, x_j], dim=-1)
+        #x = x_i * x_j
+        x = self.lin1(x)
+        x = F.elu(x)
+        x = F.dropout(x, p=0.3, training=self.training)
+        x = self.lin2(x)
+        #x = torch.sigmoid(x)
+        return x.squeeze()
+        
+    
+    def reset_parameters(self):
+      pass
 
     
     
@@ -77,8 +95,11 @@ class GIN(torch.nn.Module):
     def forward(self, x, edge_index):
             # Node embeddings 
             x = self.conv1(x, edge_index)
+            x = F.elu(x)
             x = self.conv2(x, edge_index)
+            x = F.elu(x)
             x = self.conv3(x, edge_index)
+            x = F.elu(x)
 
             # Classifier
             x = self.lin1(x)

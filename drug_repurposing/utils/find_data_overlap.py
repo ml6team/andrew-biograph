@@ -1,15 +1,15 @@
 import pandas as pd #fda_df = pd.read_csv("fda_approved_hiv_drugs.csv") df1 =
 import math
 
-
+data_dir = "../../data/misc/"
 
 df1 = pd.read_csv(
-        "1_db_cid_name.tsv", sep="\t", 
+        f"{data_dir}/1_db_cid_name.tsv", sep="\t", 
         dtype={"db":str, "cid":str, "name": str})
 df2 = pd.read_csv(
-        "2_nsc_conclusion_cid.tsv", sep="\t",
+        f"{data_dir}/2_nsc_conclusion_cid.tsv", sep="\t",
         dtype={"nsc":str, "conclusion": str, "cid":str})
-df3 = pd.read_csv("3_fda_approved_hiv_drugs.tsv", sep="\t")
+df3 = pd.read_csv(f"{data_dir}/3_fda_approved_hiv_drugs.tsv", sep="\t")
 
 cids_1 = set(df1["cid"])
 cids_2 = set(df2["cid"])
