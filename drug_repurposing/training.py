@@ -5,6 +5,7 @@ import torch_geometric.transforms as T
 from torch_geometric.loader import LinkNeighborLoader
 import torch.nn.functional as F
 import tqdm
+from torch_geometric.utils import negative_sampling
 
 
 
@@ -125,9 +126,14 @@ def create_minibatches(
 
 
 
+    
+    
+    
+
+
 def train_link_predictor(
         model, predictor, src_node_type, dest_node_type, edge_types,
-        loader, optimizer, device, train=True):
+        loader, optimizer, device, train=True, neg_sampling=False):
     
     # Set the model to training or evaluation mode.
     if train:
@@ -149,50 +155,64 @@ def train_link_predictor(
 
         # Obtain node embeddings.
         z = model(batch.x_dict, batch.edge_index_dict)
-
+        
         # Retrieve embeddings for the nodes in the specific edge type.
         z_src = z[src_node_type]
         z_dest = z[dest_node_type]
 
         # Obtain predictions for specific edge type.
         edge_label_index = batch[edge_types].edge_label_index
+        
+        
         edge_feat_src = z_src[edge_label_index[0]]
         edge_feat_dest = z_dest[edge_label_index[1]]
         edge_preds = predictor(edge_feat_src, edge_feat_dest)
-        #edge_preds = (edge_feat_src * edge_feat_dest).sum(-1) / (torch.norm(edge_feat_src)*torch.norm(edge_feat_dest))
-        #edge_preds = torch.sigmoid(edge_preds)
-        #edge_pred = torch.dot(edge_feat_src, edge_feat_dest)/(norm(edge_feat_src)*norm(edge_feat_dest))
-
-        # Compute the loss.
         ground_truth = batch[edge_types].edge_label
-        loss = F.binary_cross_entropy_with_logits(edge_preds, ground_truth)
-        #loss = torch.nn.BCELoss(edge_preds, ground_truth)
         
-        # If in training mode, compute the gradients and backpropogate.
+        # If performing negative sampling...
+        """
+        if negative_sampling:
+            neg_edges = negative_sampling(batch[edge_types].edge_label_index,
+                                         num_neg_samples=batch[edge_types].edge_label_index.size(1), method='dense')
+            neg_preds = predictor(z[src_node_type][neg_edges[0]], z[dest_node_type][neg_edges[1]])
+            edge_preds = torch.concat([edge_preds, neg_preds], dim=-1)
+            neg_truth = torch.zeros(len(neg_preds)).to(device)
+            ground_truth = torch.concat([ground_truth, neg_truth], dim=-1)
+            raise
+            #loss = -torch.log(edge_preds + 1e-15).mean() - torch.log(1 - neg_pred + 1e-15).mean()"""
+       
+        
+        # Compute the loss over the batch,
+        ####loss = F.binary_cross_entropy_with_logits(edge_preds, ground_truth)
+        ####loss = torch.nn.BCELoss(edge_preds, ground_truth)
+        loss = F.binary_cross_entropy_with_logits(edge_preds, ground_truth)
+        
+        # If in training mode, backpropogate the gradients to update parameters.
         if train:
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
             torch.nn.utils.clip_grad_norm_(predictor.parameters(), 1.0)
             optimizer.step()
-
-        # Compute the area under the curve.
+        
+        # Compute the ROC-AUC
         auc = get_auc(ground_truth, edge_preds)
         if auc == "NA":
             print(edge_preds)
             print(ground_truth)
-            raise
+            auc = 0
 
         # Add the loss / auc for this batch to the total loss / auc for the epoch.
         total_loss += float(loss) * edge_preds.numel()
         total_auc += float(auc) * edge_preds.numel()
         total_examples += edge_preds.numel()
         
+        # Free up space on the GPU.
         del batch 
         torch.cuda.empty_cache()
-        
+    
+    # Compute the loss and auc for the entire epoch.
     epoch_loss = (total_loss / total_examples)
     epoch_auc = (total_auc / total_examples)
-    
     return epoch_loss, epoch_auc
     
 

@@ -18,21 +18,87 @@ class GCNEncoder(torch.nn.Module):
         x_temp2 = self.dropout(x_temp1)
         return self.conv2(x_temp2, edge_index)
 
+    
+    
 
 
 
 class GAT(torch.nn.Module):
-    def __init__(self, hidden_channels, out_channels, heads=6):
+    def __init__(self, num_conv_layers, hidden_channels, out_channels, heads=6, dropout=0.5):
         super().__init__()
+        
+        #self.conv_model = GATv2Conv()
+        self.dropout = dropout
+        self.num_conv_layers = num_conv_layers
+        
+        """# Add the input layer.
+        self.convs = nn.ModuleList()
+        self.convs.append(GATv2Conv((-1,-1), hidden_channels, add_self_loops=False, heads=heads))
+        
+        # Add intermediate convolution layers.
+        for l in range(self.num_conv_layers - 2):
+            self.convs.append(GATv2Conv(hidden_channels*heads, hidden_channels, add_self_loops=False, heads=heads))
+        
+        self.convs.append(GATv2Conv(hidden_channels*heads, hidden_channels, add_self_loops=False, heads=1))
+        
+        self.lin1 = Linear(hidden_channels, hidden_channels)
+        #self.drop1 = nn.Dropout(self.dropout)
+        self.lin2 = Linear(hidden_channels, 1)
+        
+        
+        # Add the post provessing layers
+        self.post_mp = Sequential(
+            Linear(hidden_channels*heads, hidden_channels),
+            nn.ELU(),
+            nn.Dropout(self.dropout),
+            Linear(hidden_channels, out_channels))"""
+            
+        
         self.conv1 = GATv2Conv((-1, -1), hidden_channels, add_self_loops=False, heads=heads)
         self.conv2 = GATv2Conv(hidden_channels*heads, hidden_channels, add_self_loops=False, heads=heads)
+        #self.conv3 = GATv2Conv(hidden_channels*heads, hidden_channels, add_self_loops=False, heads=heads)
         self.conv3 = GATv2Conv(hidden_channels*heads, hidden_channels, add_self_loops=False, heads=heads)
         self.conv4 = GATv2Conv(hidden_channels*heads, hidden_channels, add_self_loops=False, heads=1)
         self.lin1 = Linear(hidden_channels, hidden_channels)
         self.lin2 = Linear(-1, out_channels)
         
+        self.skip1 = Linear(-1, hidden_channels*heads)
+        self.skip2 = Linear(-1, hidden_channels*heads)
+        self.skip3 = Linear(-1, hidden_channels*heads)
+        self.skip4 = Linear(-1, hidden_channels)
+
+        
 
     def forward(self, x, edge_index):
+        
+        """for l in range(self.num_conv_layers):
+            x = self.convs[l](x, edge_index)
+        #x = self.post_mp(x)
+        x = self.lin1(x)
+        x = F.elu(x)
+        x = F.dropout(x, p=0.5, training=self.training)
+        x = self.lin2(x)"""
+        
+        x = self.conv1(x, edge_index) + self.skip1(x)
+        #x = F.elu(x)
+        x = self.conv2(x, edge_index) + self.skip2(x)
+        #x = F.elu(x)
+        x = self.conv3(x, edge_index) + self.skip3(x)
+        #x = F.elu(x)
+        x = self.conv4(x, edge_index) + self.skip4(x)
+        #x = self.conv5(x, edge_index) #+ self.skip4(x)
+        #x = F.elu(x)
+        x = self.lin1(x)
+        x = F.elu(x)
+        x = F.dropout(x, p=0.5, training=self.training)
+        x = self.lin2(x)
+        return x
+    
+    
+        
+        
+        
+        """
         x = self.conv1(x, edge_index)
         #x = F.elu(x)
         x = self.conv2(x, edge_index)
@@ -44,8 +110,8 @@ class GAT(torch.nn.Module):
         x = self.lin1(x)
         x = F.elu(x)
         x = F.dropout(x, p=0.5, training=self.training)
-        x = self.lin2(x)
-        return x
+        x = self.lin2(x)"""
+        
 
     
 class DotProductLinkPredictor(torch.nn.Module):
@@ -55,7 +121,7 @@ class DotProductLinkPredictor(torch.nn.Module):
         self.lin2 = Linear(hidden_channels, out_channels)
         
     def forward(self, x_i, x_j):
-        
+        """
         x = torch.cat([x_i, x_j], dim=-1)
         #x = x_i * x_j
         x = self.lin1(x)
@@ -63,13 +129,20 @@ class DotProductLinkPredictor(torch.nn.Module):
         x = F.dropout(x, p=0.3, training=self.training)
         x = self.lin2(x)
         #x = torch.sigmoid(x)
-        return x.squeeze()
+        return x.squeeze()"""
+        x = (x_i * x_j).sum(-1)
+        return x
         
     
     def reset_parameters(self):
       pass
 
     
+
+  
+    
+    
+
     
     
 class GIN(torch.nn.Module):
