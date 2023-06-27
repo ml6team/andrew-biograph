@@ -90,8 +90,9 @@ class GAT(torch.nn.Module):
         #x = F.elu(x)
         x = self.lin1(x)
         x = F.elu(x)
-        x = F.dropout(x, p=0.5, training=self.training)
+        #x = F.dropout(x, p=0.5, training=self.training)
         x = self.lin2(x)
+        
         return x
     
     
@@ -130,6 +131,7 @@ class DotProductLinkPredictor(torch.nn.Module):
         x = self.lin2(x)
         #x = torch.sigmoid(x)
         return x.squeeze()"""
+        #x = (x_i * x_j).sum(-1) / (torch.norm(x_i) * torch.norm(x_j))
         x = (x_i * x_j).sum(-1)
         return x
         
