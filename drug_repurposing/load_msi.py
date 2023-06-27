@@ -42,13 +42,22 @@ class MSI():
         self.mappings = dict()
         
         # Iterate over any provided keyword arguments. 
+        self.extra_prot_data = None
+        self.extra_drug_data = None
         self.extra_dz_data = None
+        self.extra_drug_dz_links = None
         self.exclude_drug_dz_links = False
         for key, val in kwargs.items():
+            if key == "extra_drug_data":
+                self.extra_drug_data = val
             if key == "extra_dz_data":
                 self.extra_dz_data = val
             if key == "exclude_drug_dz_links":
                 self.exclude_drug_dz_links = val
+            if key == "extra_prot_data":
+                self.extra_prot_data = val
+                
+                
         
     def get_mapping(self, mapping_name, dataset, mapping, id_col, offset):
         """ Maps unique entites in a dataframe id column to unique graph ids (gids).
@@ -192,8 +201,10 @@ def get_edges(dataset, src_mapping, src_col, dest_mapping, dest_col, debug=False
 
     df = pd.read_csv(dataset, sep="\t")
     src_nodes = [src_mapping[src_id] for src_id in df[src_col]]
-    
     dest_nodes = [dest_mapping[dest_id] for dest_id in df[dest_col]]
+    
+    
+    
     edge_index = torch.tensor([src_nodes, dest_nodes])
 
     return edge_index
@@ -228,16 +239,40 @@ def generate_mappings(msi):
     offset = msi.get_mapping(
             "prot_id_gid_map", f"{msi.data_dir}/4_protein_to_biological_function.tsv", 
             msi.mappings["prot_id_gid_map"], "node_1", offset)
-
+    
+    # Allow for the inclusion of extra protein data.
+    if msi.extra_prot_data is not None:
+        offset = msi.get_mapping(
+        "prot_id_gid_map", msi.extra_prot_data, 
+        msi.mappings["prot_id_gid_map"], "node_1", offset)
+        offset = msi.get_mapping(
+        "prot_id_gid_map", msi.extra_prot_data, 
+        msi.mappings["prot_id_gid_map"], "node_2", offset)
+    
+    
+    
     # Generate drug mapping.
     offset = msi.get_mapping(
             "drug_id_gid_map", f"{msi.data_dir}/1_drug_to_protein.tsv", 
             {}, "node_1", 0)
     
+     # Allow for the inclusion of extra drug data.
+    if msi.extra_drug_data is not None:
+        offset = msi.get_mapping(
+        "drug_id_gid_map", msi.extra_drug_data, 
+        msi.mappings["drug_id_gid_map"], "node_1", offset)
+    
+    
     if not msi.exclude_drug_dz_links:
         offset = msi.get_mapping(
             "drug_id_gid_map", f"{msi.data_dir}/6_drug_indication_df.tsv", 
             msi.mappings["drug_id_gid_map"], "drug", offset)
+    
+    # Allow for the inclusion of extra drug data.
+    if msi.extra_dz_data is not None:
+        offset = msi.get_mapping(
+        "drug_id_gid_map", msi.extra_drug_data, 
+        msi.mappings["drug_id_gid_map"], "node_1", offset)
 
 
     # Generate disease mapping.
@@ -248,6 +283,8 @@ def generate_mappings(msi):
         offset = msi.get_mapping(
             "dz_id_gid_map", f"{msi.data_dir}/6_drug_indication_df.tsv", 
             msi.mappings["dz_id_gid_map"], "indication", offset)
+    
+    # Allow for the inclusion of extra disease data.
     if msi.extra_dz_data is not None:
         offset = msi.get_mapping(
             "dz_id_gid_map", msi.extra_dz_data, 
@@ -273,7 +310,8 @@ def generate_edge_index(msi):
     drug_prot_edges = get_edges(
             f"{msi.data_dir}/1_drug_to_protein.tsv",
             msi.mappings["drug_id_gid_map"], "node_1",
-            msi.mappings["prot_id_gid_map"], "node_2")
+            msi.mappings["prot_id_gid_map"], "node_2",
+            debug=False)
 
     dz_prot_edges = get_edges(
             f"{msi.data_dir}/2_indication_to_protein.tsv",
@@ -296,14 +334,33 @@ def generate_edge_index(msi):
             msi.mappings["func_id_gid_map"], "node_2")
     
     # Add in the extra edges from any additionally provided data.
+    if msi.extra_prot_data is not None:
+        temp = get_edges(
+                msi.extra_prot_data, 
+                msi.mappings["prot_id_gid_map"], "node_1",
+                msi.mappings["prot_id_gid_map"], "node_2",
+                debug=False)
+    
+        prot_prot_edges = torch.cat((prot_prot_edges, temp), dim=1)
+   
+    
+    if msi.extra_drug_data is not None:
+        temp = get_edges(
+                msi.extra_drug_data, 
+                msi.mappings["drug_id_gid_map"], "node_1",
+                msi.mappings["prot_id_gid_map"], "node_2",
+                debug=True)
+        drug_prot_edges = torch.cat((drug_prot_edges, temp), dim=1)
+    
+    
     if msi.extra_dz_data is not None:
         temp = get_edges(
                 msi.extra_dz_data, 
                 msi.mappings["dz_id_gid_map"], "node_1",
                 msi.mappings["prot_id_gid_map"], "node_2",
-                debug=True)
+                debug=False)
         dz_prot_edges = torch.cat((dz_prot_edges, temp), dim=1)
-                
+    
     
     # Join all edges together.
     edge_index = torch.cat((
@@ -317,10 +374,22 @@ def generate_edge_index(msi):
     
     if not msi.exclude_drug_dz_links:
         drug_dz_edges = get_edges(
-            "../multiscale_interactome/data/6_drug_indication_df.tsv",
+            f"{msi.data_dir}/6_drug_indication_df.tsv",
             msi.mappings["drug_id_gid_map"], "drug",
             msi.mappings["dz_id_gid_map"], "indication")
-        edge_index = torch.cat((edge_index, drug_dz_edges), dim=1)   
+        
+        
+        if msi.extra_drug_dz_links is not None:
+            temp = get_edges(
+                    msi.extra_drug_dz_links, 
+                    msi.mappings["drug_id_gid_map"], "drug",
+                    msi.mappings["dz_id_gid_map"], "indication",
+                    debug=True)
+            drug_dz_edges = torch.cat((drug_dz_edges, temp), dim=1)
+        
+        edge_index = torch.cat((edge_index, drug_dz_edges), dim=1)
+        
+        
     else:
         drug_dz_edges = None
     
@@ -358,6 +427,11 @@ def generate_name_mappings(msi):
             "node_2", "node_2_name")
     
     # Generate names for any extra data.
+    if msi.extra_prot_data:
+        msi.get_name_mapping("prot_id_name_map", msi.extra_prot_data, "node_1", "node_1_name")
+        msi.get_name_mapping("prot_id_name_map", msi.extra_prot_data, "node_2", "node_2_name")
+    if msi.extra_drug_data:
+        msi.get_name_mapping("drug_id_name_map", msi.extra_drug_data, "node_1", "node_1_name")
     if msi.extra_dz_data:
         msi.get_name_mapping("dz_id_name_map", msi.extra_dz_data, "node_1", "node_1_name")
         
