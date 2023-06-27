@@ -1,0 +1,13 @@
+node_1	node_2	node_1_type	node_2_type	node_1_name	node_2_name
+DB01048	3106	drug	protein	abacavir	HLA-B
+DB00495	7015	drug	protein	zidovudine	TERT
+DB08864	8856	drug	protein	rilpivirine	NR1I2
+DB08864	6336	drug	protein	rilpivirine	SCN10A
+DB04835	1234	drug	protein	maraviroc	CCR5
+DB08930	5452	drug	protein	doluregravir	POU2F2
+DB12698	1234	drug	protein	ibalizumab	CCR5
+DB12698	7852	drug	protein	ibalizumab	CXCR4
+DB12698	920	drug	protein	ibalizumab	CD4
+DB09065	1576	drug	protein	Cobicistat	CYP3A4
+DB09065	1577	drug	protein	Cobicistat	CYP3A5
+DB09065	1551	drug	protein	Cobicistat	CYP3A7
