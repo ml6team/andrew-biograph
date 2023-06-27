@@ -6,6 +6,7 @@ from torch_geometric.loader import LinkNeighborLoader
 import torch.nn.functional as F
 import tqdm
 from torch_geometric.utils import negative_sampling
+#from torchmetrics import HingeLoss
 
 
 
@@ -135,6 +136,9 @@ def train_link_predictor(
         model, predictor, src_node_type, dest_node_type, edge_types,
         loader, optimizer, device, train=True, neg_sampling=False):
     
+    #criterion = HingeLoss(task="binary").to(device)
+    
+    
     # Set the model to training or evaluation mode.
     if train:
         model.train()
@@ -186,6 +190,7 @@ def train_link_predictor(
         ####loss = F.binary_cross_entropy_with_logits(edge_preds, ground_truth)
         ####loss = torch.nn.BCELoss(edge_preds, ground_truth)
         loss = F.binary_cross_entropy_with_logits(edge_preds, ground_truth)
+        
         
         # If in training mode, backpropogate the gradients to update parameters.
         if train:

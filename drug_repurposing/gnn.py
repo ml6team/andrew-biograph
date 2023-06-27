@@ -56,7 +56,6 @@ class GAT(torch.nn.Module):
         
         self.conv1 = GATv2Conv((-1, -1), hidden_channels, add_self_loops=False, heads=heads)
         self.conv2 = GATv2Conv(hidden_channels*heads, hidden_channels, add_self_loops=False, heads=heads)
-        #self.conv3 = GATv2Conv(hidden_channels*heads, hidden_channels, add_self_loops=False, heads=heads)
         self.conv3 = GATv2Conv(hidden_channels*heads, hidden_channels, add_self_loops=False, heads=heads)
         self.conv4 = GATv2Conv(hidden_channels*heads, hidden_channels, add_self_loops=False, heads=1)
         self.lin1 = Linear(hidden_channels, hidden_channels)
@@ -80,14 +79,14 @@ class GAT(torch.nn.Module):
         x = self.lin2(x)"""
         
         x = self.conv1(x, edge_index) + self.skip1(x)
-        #x = F.elu(x)
+        x = F.elu(x)
         x = self.conv2(x, edge_index) + self.skip2(x)
-        #x = F.elu(x)
+        x = F.elu(x)
         x = self.conv3(x, edge_index) + self.skip3(x)
-        #x = F.elu(x)
+        x = F.elu(x)
         x = self.conv4(x, edge_index) + self.skip4(x)
         #x = self.conv5(x, edge_index) #+ self.skip4(x)
-        #x = F.elu(x)
+        x = F.elu(x)
         x = self.lin1(x)
         x = F.elu(x)
         #x = F.dropout(x, p=0.5, training=self.training)
@@ -133,6 +132,9 @@ class DotProductLinkPredictor(torch.nn.Module):
         return x.squeeze()"""
         #x = (x_i * x_j).sum(-1) / (torch.norm(x_i) * torch.norm(x_j))
         x = (x_i * x_j).sum(-1)
+        #x = self.lin1(x)
+        #x = F.elu(x)
+        #x = self.lin2(x).squeeze()
         return x
         
     
