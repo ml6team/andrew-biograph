@@ -16,7 +16,7 @@ class MolDataset(Dataset):
 
     @property
     def raw_file_names(self):
-        return "msi_drugs.csv"
+        return "formatted_msi_drugs.csv"
 
     @property
     def processed_file_names(self):
@@ -33,8 +33,8 @@ class MolDataset(Dataset):
         self.data = pd.read_csv(self.raw_paths[0])
         for idx, row in self.data.iterrows():
             smiles = row["smiles"]
-            name = row["activity"]
-            label = row["HIV_active"]
+            name = row["name"]
+            id = row["id"]
             graph = mol.smiles2graph(smiles)
             
             if graph["edge_index"].shape == 0:
@@ -45,8 +45,9 @@ class MolDataset(Dataset):
             d.edge_index = torch.tensor(graph["edge_index"])
             d.edge_attr = torch.tensor(graph["edge_feat"])
             d.smiles = smiles
-            d.y = torch.tensor(label)
+            d.id = id
             d.name = name
+
             torch.save(d, os.path.join(self.processed_dir, f"data_{idx}.pt"))
 
     def len(self):
