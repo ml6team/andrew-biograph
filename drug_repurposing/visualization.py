@@ -1,3 +1,4 @@
+import pandas as pd
 import networkx as nx
 from pyvis import network as net
 from torch_geometric.utils import to_networkx, degree
@@ -5,6 +6,8 @@ from sklearn.manifold import TSNE
 from sklearn.decomposition import PCA
 import plotly.express as px
 from rdkit import Chem
+from rdkit.Chem import Descriptors
+import mols2grid
 import py3Dmol
 
 def generate_nx_graph(data):
@@ -90,6 +93,81 @@ def draw_molecule(mol_smiles):
     return view.show()
 
 
+
+def interactive_mol_grid(
+        mol_dict,
+        n_cols=3,
+        size=(210,130),
+        gap=0,
+        selection=True,
+        border="2px ridge black",
+        fontfamily="Times New Roman"):
+    
+    """ Create interactive molecule grid using mol2grid library.
+    
+    Parameters
+    ----------
+    mol_dict : dict
+        Dictionary requiring 'name' key and list of molecule names as value and
+        'smiles' key with list of smiles string as value.
+    n_cols : int 
+        Set the number of columns for the viewer (default = 3).
+    size : tuple 
+        Set the size of each molecule (default = (210,13))
+    gap : int
+        Set the spacing between the molecules in the grid (default=0).
+    selection : bool
+        Turn the selection box on or off (default = True).
+    border : str
+        Set the css border style (default = 2px ridge black).
+    fontfamily : str
+        Set the css-style font (default = Times New Roman).
+    
+    Returns
+    -------
+    viewer : IPython.core.display.HTML
+        Interactive HTML object displaying molecules and accompanying information in 
+        a grid.
+    df : DataFrame
+        Dataframe with chemical information for each molecule.
+    
+    
+    """
+    
+    # Load the dictionary into a dataframe.
+    df = pd.DataFrame.from_dict(mol_dict)
+    
+    # Create mol objects from smiles strings.
+    df["mol"] = df["SMILES"].apply(Chem.MolFromSmiles)
+    
+    # Compute extra molecular properties.
+    df["MolWt"] = df["mol"].apply(Descriptors.ExactMolWt)
+    df["QED"] = df["mol"].apply(Descriptors.qed)
+    df["LogP"] = df["mol"].apply(Descriptors.MolLogP)
+    df["NumHDonors"] = df["mol"].apply(Descriptors.NumHDonors)
+    df["NumHAcceptors"] = df["mol"].apply(Descriptors.NumHAcceptors)
+    
+    # Reformat the dataframe.
+    df.drop(columns=["mol"], inplace=True)
+    
+    # Create molecule viewer.
+    viewer = mols2grid.display(
+            df,
+            n_cols=3,
+            subset=["name", "img"],  # set the fields  displayed on the grid.
+            tooltip=["name", "MolWt", "QED"], # set the fields displayed on mouse hover.
+            template="pages",
+            size=size, # size of each image.
+            gap=gap, # spacing between molecules.
+            selection=selection, # toggle selection box.
+            border=border, # css border style.
+            fontfamily=fontfamily) # css font style.
+    
+    return df, viewer
+
+
+    
+    
 
 
 
