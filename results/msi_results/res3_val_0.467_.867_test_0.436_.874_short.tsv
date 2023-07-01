@@ -1,4 +1,4 @@
-id	name	similarity
+id	name	score
 T0000000	test_drug	0.8063344
 DB12698	ibalizumab	0.80163455
 DB04835	maraviroc	0.7949789
