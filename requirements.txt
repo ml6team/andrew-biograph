@@ -7,3 +7,5 @@ torch_geometric
 pyvis
 rdkit
 py3Dmol
+ogb
+mols2grid
