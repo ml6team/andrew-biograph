@@ -14,6 +14,6 @@ multiscale_interactome
 *.ipynb_checkpoints*
 
 # Large files
-drug_repurposing/data/hiv/processed/*
-drug_repurposing/data/hiv/raw/*
+drug_repurposing/data/molecule_data/processed/*
+drug_repurposing/data/molecule_date/raw/*
 drug_repurposing/data/msi_drugs/processed/*
