@@ -7,6 +7,10 @@ import torch.nn.functional as F
 import tqdm
 from torch_geometric.utils import negative_sampling
 #from torchmetrics import HingeLoss
+from torch_geometric.utils import one_hot
+from torch.nn import BCELoss
+import torch.nn as nn
+
 
 
 
@@ -228,7 +232,7 @@ def train_link_predictor(
     
     
 
-def train_graph_classifier(model, ohe, loader, criterion, optimizer, train=True):
+def train_graph_classifier(model, loader, criterion, optimizer, device, train=True):
     
     # Set the model mode.
     if train:
@@ -236,58 +240,46 @@ def train_graph_classifier(model, ohe, loader, criterion, optimizer, train=True)
     else:
         model.eval()
     
+    
     # Initialize metrics to 0. 
     total_loss = total_examples = total_correct = total_auc = 0
     
     # Iterate in batches over the data.
-    for data in loader: 
+    for data in tqdm.tqdm(loader):
+        data.to(device)
         optimizer.zero_grad() 
         data.x = data.x.to(torch.float32)
-        out = model(data.x, data.edge_index, data.batch)
-        labels = torch.tensor(ohe.transform(data.y).toarray())
-        loss = criterion(out, labels)  
+        out = model(data.x, data.edge_index, data.edge_attr, data.batch)
+        loss = F.binary_cross_entropy_with_logits(out.squeeze(), data.y.squeeze())
+        #loss = criterion(out, labels)  
+        
+        #loss = BCELoss()(out.squeeze(), data.y.squeeze())
         
         if train:
             loss.backward()
             optimizer.step()
         
-        pred_class = out.argmax(dim=1)
-        correct = (pred_class == data.y.squeeze()).sum()
-        auc = get_auc(labels, out)
+        #pred_class = out.argmax(dim=1)
+        #correct = (pred_class == data.y.squeeze()).sum()
+        auc = get_auc(data.y, out)
         total_loss += float(loss) * len(data)
         if auc != "NA":
             total_auc += float(auc) * len(data)
         
-        total_correct += correct
+        #total_correct += correct
         total_examples += len(data)
     
     
     epoch_loss = total_loss / total_examples
-    epoch_acc = total_correct / total_examples
+    #epoch_acc = total_correct / total_examples
     epoch_auc = total_auc / total_examples
     
         
-    return epoch_loss, epoch_acc, epoch_auc
+    return epoch_loss, epoch_auc, model
 
 
-
-def get_predictions(model, loader):
-    model.eval()
-    total_correct = total_examples = total_auc = 0
-    correct = 0
-    for data in loader:  # Iterate in batches over the training/test dataset.
-        data.x = data.x.to(torch.float32)
-        out = model(data.x, data.edge_index, data.batch)
-        pred = out.argmax(dim=1) # Use the class with highest probability.
-        print(pred)
-        raise
-        
         
 
-    
-        
-        
-        
         
 def get_auc(y, pred_y):
     """Calculate auc.

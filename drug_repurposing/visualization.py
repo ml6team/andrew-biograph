@@ -130,8 +130,6 @@ def interactive_mol_grid(
         a grid.
     df : DataFrame
         Dataframe with chemical information for each molecule.
-    
-    
     """
     
     # Load the dictionary into a dataframe.
