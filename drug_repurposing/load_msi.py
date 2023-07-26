@@ -521,9 +521,9 @@ def generate_edge_index(msi):
              prot_prot_edges, prot_func_edges, func_func_edges), 
             dim=1)
     
-    return (edge_index, drug_prot_edges, 
+    return (edge_index, drug_prot_edges, drug_dz_edges,
             dz_prot_edges, prot_prot_edges, 
-            prot_func_edges, func_func_edges, drug_dz_edges)
+            prot_func_edges, func_func_edges)
 
 
 
@@ -639,8 +639,8 @@ def create_msi(name, **kwargs):
     msi.load_graph(features, edge_index, num_nodes)
     msi.load_hetero_graph(
             drug_features, dz_features, prot_features, func_features,  
-            drug_prot_edges, dz_prot_edges, prot_prot_edges, prot_func_edges, 
-            func_func_edges, drug_dz_edges)
+            drug_prot_edges, drug_dz_edges, dz_prot_edges, prot_prot_edges, prot_func_edges, 
+            func_func_edges)
     
     # Return the msi object.
     return msi
